@@ -1,0 +1,415 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script>```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Terms of Use · QR Studio</title>
+  <style>
+    :root{--bg:#0b0b0c;--fg:#e8e8ea;--muted:#a8acb3;--card:#131416;--accent:#52a3ff;--border:#1d2026}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif}
+    header{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.85);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--border)}
+    .wrap{max-width:900px;margin:0 auto;padding:10px 14px}
+    .topbar{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .brand{display:flex;flex-direction:column}
+    .brand small{color:var(--muted);opacity:.9}
+    .pill{border:1px solid var(--border);background:var(--card);color:var(--fg);padding:8px 12px;border-radius:999px;text-decoration:none;user-select:none;cursor:pointer}
+    .lang-switch{display:flex;gap:6px}
+    .lang-switch label{cursor:pointer}
+    /* language radios */
+    #lang-en,#lang-uk{position:absolute;left:-9999px}
+    #lang-en:checked ~ header .lang-switch label[for="lang-en"],
+    #lang-uk:checked ~ header .lang-switch label[for="lang-uk"]{outline:2px solid var(--accent)}
+    main{max-width:900px;margin:0 auto;padding:14px}
+    article{border:1px solid var(--border);background:var(--card);padding:16px;border-radius:16px}
+    h1{margin:6px 0 4px 0;font-size:22px}
+    h2{font-size:18px;margin:22px 0 8px;border-top:1px dashed var(--border);padding-top:14px}
+    :where(h1,h2){scroll-margin-top:84px}
+    ul{margin:8px 0 8px 20px}
+    .muted{color:var(--muted)}
+    .lang{display:none}
+    /* show section by radio */
+    #lang-en:checked ~ main .lang-en{display:block}
+    #lang-uk:checked ~ main .lang-uk{display:block}
+    /* Bottom sheet controlled by checkbox */
+    #toc-open{position:absolute;left:-9999px}
+    .backdrop{display:none}
+    .sheet{position:fixed;top:64px;right:10px;z-index:40;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);transform:scaleY(0);transform-origin:top right;transition:transform .18s ease, opacity .18s ease;opacity:0;max-height:60vh;overflow:auto;min-width:260px;max-width:min(92vw,420px)}
+    #toc-open:checked ~ .backdrop{display:none}
+    #toc-open:checked ~ .sheet{transform:scaleY(1);opacity:1}
+    .sheet .handle{display:none}
+    .sheet h3{margin:10px 12px 6px;font-size:13px;letter-spacing:.02em;color:var(--muted)}
+    .sheet a{display:block;padding:10px 16px;text-decoration:none;color:var(--fg);border-top:1px solid var(--border)}
+    .sheet a:active{background:#1a1d22}
+    /* Localized TOC visibility */
+    .toc-en,.toc-uk{display:none}
+    #lang-en:checked ~ .sheet .toc-en{display:block}
+    #lang-uk:checked ~ .sheet .toc-uk{display:block}
+    @media (min-width:900px){.sheet{top:74px;right:14px}.backdrop{display:none}}
+    /* Fab top */
+    .fab-row{position:fixed;right:12px;bottom:16px;z-index:25;display:flex;flex-direction:column;gap:10px}
+    .fab{border:1px solid var(--border);background:var(--card);padding:10px 14px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.35);text-decoration:none;color:var(--fg)}
+  </style>
+</head>
+<body>
+  <a id="top"></a>
+  <!-- language radios (no JS) -->
+  <input type="radio" name="lang" id="lang-en" checked>
+  <input type="radio" name="lang" id="lang-uk">
+  <!-- single controller for Contents bottom sheet -->
+  <input type="checkbox" id="toc-open" hidden>
+
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <small>QR Studio</small>
+        <strong>Terms of Use · Умови використання</strong>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <!-- SINGLE Contents button (top only) -->
+        <label class="pill" for="toc-open" aria-controls="toc-sheet">Contents</label>
+        <div class="lang-switch" role="tablist" aria-label="Language switch">
+          <label class="pill" for="lang-en" role="tab" aria-selected="true">EN</label>
+          <label class="pill" for="lang-uk" role="tab" aria-selected="false">UK</label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- EN -->
+      <section id="en-top" class="lang lang-en">
+        <h1>Terms of Use</h1>
+        <p class="muted">Last updated: September 27, 2025</p>
+        <p>These Terms of Use (“Terms”) govern your access to and use of the QR Studio mobile app and related web/backend services (“Service”) owned by Sole Proprietor Oleksii Zaitsev (CoreLogic) (“we”, “us”, “our”). By using the Service, you agree to these Terms and commit to complying with applicable laws.</p>
+        <h2 id="en-1">1. Consumer Protection</h2>
+        <p>We comply with the Law of Ukraine “On Consumer Rights Protection” No. 3153-IX of 10.06.2023, including:</p>
+        <ul>
+          <li>Article 8 – rights for defective services or contract breaches.</li>
+          <li>Article 13 – right to accurate product information.</li>
+          <li>Article 15 – right to information about goods/services.</li>
+          <li>Article 19 – protection against unfair commercial practices.</li>
+        </ul>
+        <p>We provide:</p>
+        <ul>
+          <li>Clear information about the Service, including pricing, limits, and functionality.</li>
+          <li>Transparent mechanisms for complaints and termination.</li>
+          <li>Assurance that your mandatory consumer rights are not restricted by these Terms.</li>
+        </ul>
+        <p>You are entitled to quality service, the ability to file complaints, and a response within a reasonable time (30 days unless otherwise required by law).</p>
+        <h2 id="en-2">2. License</h2>
+        <p>We grant you a limited, revocable, non-exclusive, non-transferable license to use the Service in accordance with these Terms. You may not:</p>
+        <ul>
+          <li>Modify, decompile, or reverse-engineer the Service.</li>
+          <li>Transfer access to the Service to third parties without our permission.</li>
+        </ul>
+        <h2 id="en-3">3. Account</h2>
+        <ul>
+          <li>You are responsible for the accuracy of your information and the security of your account (login, password).</li>
+          <li>Some Service features require registration via Firebase Authentication.</li>
+          <li>If you suspect unauthorized access, notify us immediately at energymotort@gmail.com.</li>
+        </ul>
+        <h2 id="en-4">4. Subscriptions & Payments</h2>
+        <p>Subscriptions and payments are processed via Apple App Store (StoreKit).</p>
+        <ul>
+          <li><strong>Subscription terms:</strong>
+            <ul>
+              <li>Subscriptions auto-renew unless canceled at least 24 hours before the current period ends.</li>
+              <li>Manage/cancel: Settings → [your name] → Subscriptions.</li>
+              <li>Charges are billed to your Apple ID.</li>
+              <li>Trial periods convert to paid subscriptions unless canceled in time.</li>
+              <li>Refunds are governed by Apple’s policies (contact Apple Support).</li>
+            </ul>
+          </li>
+          <li><strong>Plan and limit descriptions:</strong>
+            <ul>
+              <li>Details on features (dynamic links, API, analytics, scan limits) are available in the app or on our website.</li>
+              <li>We may update plans/limits, but changes do not affect already paid periods unless required by law (e.g., Article 19 of Ukraine’s Consumer Protection Law).</li>
+            </ul>
+          </li>
+          <li>We do not store payment details (cards or other data); these are processed by Apple.</li>
+        </ul>
+        <h2 id="en-5">5. Acceptable Use Policy (AUP)</h2>
+        <p>You agree not to use the Service for:</p>
+        <ul>
+          <li>Inciting hatred (Article 161 Ukraine Criminal Code).</li>
+          <li>Promoting war or terrorism (Article 436; Law No. 638-IV, Article 1).</li>
+          <li>Calling for separatism (Article 110).</li>
+          <li>Spreading violence, discrimination, or violating intellectual property/privacy rights.</li>
+          <li>Distributing malware, phishing, or fraud.</li>
+          <li>Circumventing technical limits, quotas, or sanctions/export controls.</li>
+        </ul>
+        <p>We may:</p>
+        <ul>
+          <li>Remove or block violating content or links.</li>
+          <li>Suspend or terminate access for violators.</li>
+          <li>Cooperate with authorities as required by law.</li>
+        </ul>
+        <h2 id="en-6">6. Analytics & Technical Limits</h2>
+        <ul>
+          <li>We collect aggregated analytics on scans/clicks to provide reports to link owners.</li>
+          <li>We may apply technical limits (e.g., scan or API request quotas) to ensure Service stability and security.</li>
+        </ul>
+        <h2 id="en-7">7. Intellectual Property</h2>
+        <p>The app displays only user-generated content (QR codes from user-provided data). Rights to the content remain with users. Users grant us a non-exclusive license to host and process their content to operate the Service (see Terms of Use). We promptly handle takedown requests (DMCA-like procedure). Contact: energymotort@gmail.com.</p>
+        <ul>
+          <li>You warrant that you own the necessary rights to your content (logos, texts, images) and that its use in the Service does not infringe third-party rights.</li>
+          <li>In case of repeated intellectual property violations, we may restrict or terminate your access to the Service.</li>
+          <li>You confirm that you are not subject to export restrictions and do not use the Service in prohibited jurisdictions, in compliance with applicable laws (including US/EU/Ukraine sanctions regimes).</li>
+        </ul>
+        <h2 id="en-8">8. Suspension/Termination</h2>
+        <p>We may suspend or terminate your access if:</p>
+        <ul>
+          <li>You violate these Terms or applicable law.</li>
+          <li>Your actions pose a risk to Service security or stability.</li>
+          <li>Required by law or authorities.</li>
+        </ul>
+        <p>Where feasible, we will notify you of termination via email or in-app messaging.</p>
+        <h2 id="en-9">9. Disclaimer & Liability</h2>
+        <ul>
+          <li>The Service is provided “as is” without additional warranties beyond those required by law.</li>
+          <li>To the extent permitted by law, we are not liable for indirect, incidental, punitive damages, or loss of data/profits.</li>
+          <li>Your mandatory consumer rights (e.g., under Ukraine’s Consumer Protection Law or GDPR) remain unaffected.</li>
+        </ul>
+        <h2 id="en-10">10. Disputes & Governing Law</h2>
+        <ul>
+          <li><strong>Governing law:</strong> These Terms are governed by Ukrainian law (without conflict-of-laws rules), unless mandatory laws of your country apply (e.g., EU/EEA consumer protections, including GDPR).</li>
+          <li><strong>Dispute resolution:</strong> Before pursuing court or alternative dispute resolution, please send a written complaint to energymotort@gmail.com. We will respond within 30 days. If unresolved, disputes may be brought to a competent court in your place of residence (for consumers) or our place of registration (other cases).</li>
+        </ul>
+        <h2 id="en-11">11. Copyright Infringement Notices</h2>
+        <p>If you believe your content has been used in the Service in violation of your copyright, send a notice to energymotort@gmail.com including:</p>
+        <ul>
+          <li>Your contact details.</li>
+          <li>Description and location of the work in the Service (e.g., URL).</li>
+          <li>A statement under penalty of perjury that you are authorized to act on behalf of the rights owner.</li>
+          <li>Your signature (electronic or physical).</li>
+        </ul>
+        <p>We will promptly review notices and may disable access to disputed content, notifying the user who posted it, in line with DMCA principles (17 U.S.C. § 512) and similar laws.</p>
+        <h2 id="en-12">12. Changes</h2>
+        <p>We may update these Terms to reflect changes in law or Service functionality. Updates are posted with an effective date on our website or in the app. Continued use after changes signifies your acceptance.</p>
+        <h2 id="en-13">13. Support</h2>
+        <p>For support inquiries, contact energymotort@gmail.com. Target response time: within 3 business days (Kyiv time).</p>
+        <p class="muted" style="margin-top:18px">© 2025 CoreLogic · All rights reserved.</p>
+      </section>
+
+      <!-- UKR -->
+      <section id="uk-top" class="lang lang-uk">
+        <h1>Умови використання</h1>
+        <p class="muted">Останнє оновлення: 27 вересня 2025 року</p>
+        <p>Ці Умови використання («Умови») регулюють ваш доступ до мобільного застосунку «QR Studio» та пов’язаних веб- і бекенд-сервісів, що належать ФОП Зайцев Олексій Юрійович (CoreLogic) («ми», «нас», «наш»). Використовуючи Сервіс, ви підтверджуєте згоду з цими Умовами та зобов’язуєтесь дотримуватися застосовного законодавства.</p>
+        <h2 id="uk-1">1. Захист прав споживачів</h2>
+        <p>Ми дотримуємося Закону України «Про захист прав споживачів» № 3153-IX від 10.06.2023, зокрема:</p>
+        <ul>
+          <li>Стаття 8 – права у разі порушення умов договору чи надання неякісної послуги.</li>
+          <li>Стаття 13 – право на достовірну інформацію про продукцію.</li>
+          <li>Стаття 15 – право на інформацію про товари та послуги.</li>
+          <li>Стаття 19 – захист від недобросовісної комерційної практики.</li>
+        </ul>
+        <p>Ми надаємо:</p>
+        <ul>
+          <li>Чітку інформацію про Сервіс, включаючи тарифи, ліміти та функціонал.</li>
+          <li>Прозорі механізми подання скарг і припинення використання.</li>
+          <li>Гарантію, що ваші обов’язкові права як споживача не обмежуються цими Умовами.</li>
+        </ul>
+        <p>Ви маєте право на якісну послугу, подання скарги та отримання відповіді протягом розумного строку (30 днів, якщо інше не передбачено законом).</p>
+        <h2 id="uk-2">2. Ліцензія</h2>
+        <p>Ми надаємо вам обмежену, відкличну, невиключну, непередавальну ліцензію на використання Сервісу відповідно до цих Умов. Ви не можете:</p>
+        <ul>
+          <li>Модифікувати, декомпілювати чи здійснювати зворотну розробку Сервісу.</li>
+          <li>Передавати доступ до Сервісу третім особам без нашого дозволу.</li>
+        </ul>
+        <h2 id="uk-3">3. Обліковий запис</h2>
+        <ul>
+          <li>Ви відповідаєте за точність наданої інформації та безпеку вашого облікового запису (логін, пароль).</li>
+          <li>Деякі функції Сервісу доступні лише після реєстрації через Firebase Authentication.</li>
+          <li>У разі підозри на несанкціонований доступ повідомте нас негайно на energymotort@gmail.com.</li>
+        </ul>
+        <h2 id="uk-4">4. Підписки та оплати</h2>
+        <p>Підписки та платежі обробляються через Apple App Store (StoreKit).</p>
+        <ul>
+          <li><strong>Умови підписок:</strong>
+            <ul>
+              <li>Підписки автоматично продовжуються, якщо не скасовані за 24 години до завершення поточного періоду.</li>
+              <li>Керування/скасування: Налаштування → [ваше ім’я] → Підписки.</li>
+              <li>Оплата списується з вашого Apple ID.</li>
+              <li>Пробні періоди автоматично переходять у платні, якщо не скасувати вчасно.</li>
+              <li>Повернення коштів регулюється політикою Apple (звертайтесь до служби підтримки Apple).</li>
+            </ul>
+          </li>
+          <li><strong>Опис планів і лімітів:</strong>
+            <ul>
+              <li>Інформація про функції (динамічні посилання, API, аналітика, ліміти сканувань) доступна в застосунку чи на нашому сайті.</li>
+              <li>Ми можемо змінювати плани/ліміти, але зміни не впливають на вже оплачені періоди, якщо інше не передбачено законом (стаття 19 Закону України «Про захист прав споживачів»).</li>
+            </ul>
+          </li>
+          <li>Ми не зберігаємо платіжні дані (картки чи інші реквізити); їх обробляє Apple.</li>
+        </ul>
+        <h2 id="uk-5">5. Прийнятне використання (AUP)</h2>
+        <p>Ви погоджуєтесь не використовувати Сервіс для:</p>
+        <ul>
+          <li>Розпалювання ворожнечі (стаття 161 КК України).</li>
+          <li>Пропаганди війни чи тероризму (стаття 436 КК України; Закон № 638-IV, стаття 1).</li>
+          <li>Закликів до сепаратизму (стаття 110 КК України).</li>
+          <li>Поширення насильства, дискримінації, порушення прав інтелектуальної власності чи приватності.</li>
+          <li>Розповсюдження шкідливого ПЗ, фішингу чи шахрайства.</li>
+          <li>Обходу технічних обмежень, квот чи санкцій/експортного контролю.</li>
+        </ul>
+        <p>Ми можемо:</p>
+        <ul>
+          <li>Видаляти або блокувати порушення контенту чи посилань.</li>
+          <li>Призупиняти чи припиняти доступ до Сервісу.</li>
+          <li>Співпрацювати з органами влади відповідно до закону.</li>
+        </ul>
+        <h2 id="uk-6">6. Аналітика та технічні обмеження</h2>
+        <ul>
+          <li>Ми збираємо агреговану аналітику сканувань/кліків для надання звітів власникам посилань.</li>
+          <li>Для забезпечення стабільності та безпеки Сервісу ми можемо застосовувати технічні обмеження (наприклад, квоти на кількість сканувань чи API-запитів).</li>
+        </ul>
+        <h2 id="uk-7">7. Інтелектуальна власність</h2>
+        <p>Додаток відображає лише користувацький контент (QR з введених даних). Права на контент належать користувачам. Користувач надає нам невиключну ліцензію на хостинг/обробку для роботи Сервісу (див. Умови використання). Ми оперативно реагуємо на скарги правовласників (процедура, аналогічна DMCA). Контакт: energymotort@gmail.com.</p>
+        <ul>
+          <li>Користувач гарантує, що володіє необхідними правами на контент (логотипи, тексти, зображення), і що розміщення та використання такого контенту в Сервісі не порушує прав третіх осіб.</li>
+          <li>У разі повторних порушень прав інтелектуальної власності ми можемо обмежити або припинити доступ користувача до Сервісу.</li>
+          <li>Користувач підтверджує, що не перебуває під експортними обмеженнями та не використовує Сервіс у заборонених юрисдикціях, відповідно до застосовного законодавства (включно з санкційними режимами США/ЄС/України).</li>
+        </ul>
+        <h2 id="uk-8">8. Припинення доступу</h2>
+        <p>Ми можемо призупинити або припинити ваш доступ до Сервісу, якщо:</p>
+        <ul>
+          <li>Ви порушуєте ці Умови чи застосовне законодавство.</li>
+          <li>Ваші дії створюють ризик для безпеки чи стабільності Сервісу.</li>
+          <li>Це вимагається законом чи компетентними органами.</li>
+        </ul>
+        <p>У разі припинення доступу ви будете повідомлені (за можливості) через електронну пошту чи в застосунку.</p>
+        <h2 id="uk-9">9. Відповідальність</h2>
+        <ul>
+          <li>Сервіс надається «як є» без додаткових гарантій, крім тих, що передбачені законом.</li>
+          <li>У межах, дозволених законом, ми не несемо відповідальності за непрямі, випадкові, штрафні збитки, втрату даних чи прибутку.</li>
+          <li>Ваші обов’язкові права як споживача (зокрема, за Законом України «Про захист прав споживачів» чи GDPR) залишаються незмінними.</li>
+        </ul>
+        <h2 id="uk-10">10. Вирішення спорів і право, що застосовується</h2>
+        <ul>
+          <li><strong>Право, що застосовується:</strong> Ці Умови регулюються законодавством України (без урахування колізійних норм), якщо інше не вимагається імперативними нормами вашої країни (наприклад, для споживачів ЄС/ЄЕЗ застосовуються їхні національні закони, включаючи GDPR).</li>
+          <li><strong>Вирішення спорів:</strong> Перед зверненням до суду просимо подати письмову претензію на energymotort@gmail.com. Ми відповімо протягом 30 днів. Якщо спір не вирішено, він може бути переданий до компетентного суду за місцем вашого проживання (для споживачів) або за місцем реєстрації ФОП (для інших випадків).</li>
+        </ul>
+        <h2 id="uk-11">11. Повідомлення про порушення авторських прав</h2>
+        <p>Якщо ви вважаєте, що ваш контент було використано в Сервісі з порушенням авторських прав, надішліть повідомлення на energymotort@gmail.com, вказавши:</p>
+        <ul>
+          <li>Ваші контактні дані.</li>
+          <li>Опис твору та його місце розташування в Сервісі (наприклад, URL).</li>
+          <li>Заяву під присягою про ваші повноваження діяти від імені власника прав.</li>
+          <li>Ваш підпис (електронний або фізичний).</li>
+        </ul>
+        <p>Ми оперативно розглянемо повідомлення та можемо обмежити доступ до спірного контенту, повідомивши користувача, який його розмістив, відповідно до принципів DMCA (17 U.S.C. § 512) та аналогічних норм.</p>
+        <h2 id="uk-12">12. Зміни до Умов</h2>
+        <p>Ми можемо оновлювати ці Умови, щоб відобразити зміни в законодавстві чи функціональності Сервісу. Оновлення публікуються з датою набрання чинності на нашому сайті чи в застосунку. Продовження використання Сервісу після змін означає вашу згоду.</p>
+        <h2 id="uk-13">13. Підтримка</h2>
+        <p>Для питань підтримки звертайтесь на energymotort@gmail.com. Цільовий час відповіді – до 3 робочих днів (за київським часом).</p>
+        <p class="muted" style="margin-top:18px">© 2025 CoreLogic · Усі права захищено.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Single bottom sheet (checkbox-controlled) with localized TOC -->
+  <div class="sheet" id="toc-sheet" role="dialog" aria-label="Contents">
+    <div class="handle" aria-hidden="true"></div>
+    <!-- EN TOC -->
+    <div class="toc-en">
+      <h3>Contents</h3>
+      <a href="#en-top">Top</a>
+      <a href="#en-1">1. Consumer Protection</a>
+      <a href="#en-2">2. License</a>
+      <a href="#en-3">3. Account</a>
+      <a href="#en-4">4. Subscriptions & Payments</a>
+      <a href="#en-5">5. Acceptable Use Policy (AUP)</a>
+      <a href="#en-6">6. Analytics & Technical Limits</a>
+      <a href="#en-7">7. Intellectual Property</a>
+      <a href="#en-8">8. Suspension/Termination</a>
+      <a href="#en-9">9. Disclaimer & Liability</a>
+      <a href="#en-10">10. Disputes & Governing Law</a>
+      <a href="#en-11">11. Copyright Infringement Notices</a>
+      <a href="#en-12">12. Changes</a>
+      <a href="#en-13">13. Support</a>
+    </div>
+    <!-- UK TOC -->
+    <div class="toc-uk">
+      <h3>Зміст</h3>
+      <a href="#uk-top">Верх</a>
+      <a href="#uk-1">1. Захист прав споживачів</a>
+      <a href="#uk-2">2. Ліцензія</a>
+      <a href="#uk-3">3. Обліковий запис</a>
+      <a href="#uk-4">4. Підписки та оплати</a>
+      <a href="#uk-5">5. Прийнятне використання (AUP)</a>
+      <a href="#uk-6">6. Аналітика та технічні обмеження</a>
+      <a href="#uk-7">7. Інтелектуальна власність</a>
+      <a href="#uk-8">8. Припинення доступу</a>
+      <a href="#uk-9">9. Відповідальність</a>
+      <a href="#uk-10">10. Вирішення спорів і право</a>
+      <a href="#uk-11">11. Порушення авторських прав</a>
+      <a href="#uk-12">12. Зміни до Умов</a>
+      <a href="#uk-13">13. Підтримка</a>
+    </div>
+  </div>
+
+  <div class="fab-row">
+    <a class="fab" href="#top" aria-label="Back to top">Top ↑</a>
+  </div>
+  <script>
+    // Auto-close Contents after selecting an item (tap/click/keyboard)
+    (function(){
+      const toc = document.getElementById('toc-sheet');
+      const toggle = document.getElementById('toc-open');
+      if(!toc||!toggle) return;
+      toc.addEventListener('click', function(e){
+        const a = e.target.closest('a');
+        if(a && a.getAttribute('href') && a.getAttribute('href').startsWith('#')){
+          // close the dropdown; let the browser jump to the anchor
+          toggle.checked = false;
+        }
+      });
+      // Also close if user navigates via hash (e.g., keyboard, external link)
+      window.addEventListener('hashchange', ()=>{ toggle.checked = false; });
+    })();
+  </script>
+</body>
+</html>
+```
