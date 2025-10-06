@@ -1,49 +1,9 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script>```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Privacy Policy · QR Studio</title>
+  <title>Privacy Policy · ixonity</title>
   <style>
     :root{--bg:#0b0b0c;--fg:#e8e8ea;--muted:#a8acb3;--card:#131416;--accent:#52a3ff;--border:#1d2026}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif}
@@ -69,10 +29,8 @@
     #lang-en:checked ~ main .lang-en{display:block}
     #lang-uk:checked ~ main .lang-uk{display:block}
     #toc-open{position:absolute;left:-9999px}
-    .backdrop{display:none}
     .sheet{position:fixed;top:64px;right:10px;z-index:40;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);transform:scaleY(0);transform-origin:top right;transition:transform .18s ease, opacity .18s ease;opacity:0;max-height:60vh;overflow:auto;min-width:260px;max-width:min(92vw,420px)}
     #toc-open:checked ~ .sheet{transform:scaleY(1);opacity:1}
-    .sheet .handle{display:none}
     .sheet h3{margin:10px 12px 6px;font-size:13px;letter-spacing:.02em;color:var(--muted)}
     .sheet a{display:block;padding:10px 14px;text-decoration:none;color:var(--fg);border-top:1px solid var(--border)}
     .sheet a:first-of-type{border-top:0}
@@ -80,7 +38,7 @@
     .toc-en,.toc-uk{display:none}
     #lang-en:checked ~ .sheet .toc-en{display:block}
     #lang-uk:checked ~ .sheet .toc-uk{display:block}
-    @media (min-width:900px){.sheet{top:74px;right:14px}.backdrop{display:none}}
+    @media (min-width:900px){.sheet{top:74px;right:14px}}
     .fab-row{position:fixed;right:12px;bottom:16px;z-index:25;display:flex;flex-direction:column;gap:10px}
     .fab{border:1px solid var(--border);background:var(--card);padding:10px 14px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.35);text-decoration:none;color:var(--fg)}
   </style>
@@ -94,7 +52,7 @@
   <header>
     <div class="wrap topbar">
       <div class="brand">
-        <small>QR Studio</small>
+        <small>ixonity</small>
         <strong>Privacy Policy · Політика конфіденційності</strong>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
@@ -109,466 +67,138 @@
 
   <main>
     <article>
+      <!-- EN -->
       <section id="en-top" class="lang lang-en">
         <h1>Privacy Policy</h1>
         <p class="muted">Last updated: September 27, 2025</p>
-        <p>This Privacy Policy (“Policy”) explains how Sole Proprietor Oleksii Zaitsev (CoreLogic) (“we”, “us”, “our”), as a data controller, collects, uses, stores, protects, and processes your personal data when using the QR Studio mobile app and related web/backend services (“Service”). We are committed to transparency, security, and compliance with applicable laws in Ukraine, the European Union (EU/EEA), and the United States (particularly California).</p>
+
+        <p>This Privacy Policy (“Policy”) explains how Sole Proprietor Oleksii Zaitsev (<strong>ixonity</strong>) (“we”, “us”, “our”), as a data controller, collects, uses, stores, protects, and processes your personal data when using our apps and related web/backend services (“Service”). We are committed to transparency, security, and compliance with applicable laws in Ukraine, the EU/EEA, and the United States (in particular, California).</p>
+
         <p><strong>Controller contact:</strong></p>
         <ul>
-          <li>Name: Sole Proprietor Oleksii Zaitsev (CoreLogic)</li>
-          <li>E-mail: energymotort@gmail.com</li>
-          <li>Phone: +380956171507</li>
-          <li>Postal address: Inquiries are accepted via email at energymotort@gmail.com</li>
+          <li>Name: Sole Proprietor Oleksii Zaitsev (ixonity)</li>
+          <li>E-mail: <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a></li>
+          <li>Phone: <a href="tel:+380771817071">+380771817071</a></li>
+          <li>Website: <a href="https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/" target="_blank" rel="noopener">https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/</a></li>
+          <li>Postal address: inquiries are accepted via e-mail.</li>
         </ul>
+
         <h2 id="en-1">1. Legal Framework & Consumer Rights</h2>
-        <p>We comply with applicable laws based on your location, including:</p>
-        <ul>
-          <li><strong>In Ukraine:</strong>
-            <ul>
-              <li>Law of Ukraine “On Personal Data Protection” No. 2297-VI of 01.06.2010 (Article 6 – general processing requirements; Article 8 – data subject rights; Article 11 – legal bases for processing).</li>
-              <li>Law of Ukraine “On Consumer Rights Protection” No. 3153-IX of 10.06.2023 (Article 8 – rights for defective services; Article 13 – right to product information; Article 15 – right to information about goods/services; Article 19 – protection against unfair commercial practices).</li>
-              <li>Criminal Code of Ukraine: Article 161 (countering hate speech), Article 436 (countering war propaganda), Article 110 (countering separatism).</li>
-              <li>Law of Ukraine “On Combating Terrorism” No. 638-IV of 20.03.2003 (Article 1 – definition of terrorism; Article 24 – liability for supporting terrorism).</li>
-            </ul>
-          </li>
-          <li><strong>For EU/EEA users:</strong>
-            <ul>
-              <li>General Data Protection Regulation (GDPR) (Regulation (EU) 2016/679): Articles 5 (processing principles), 6 (legal bases), 12–22 (data subject rights), 32 (security), 33–34 (breach notifications), 46 (data transfers).</li>
-              <li>ePrivacy Directive (2002/58/EC): Article 5(3) (consent for cookies/similar technologies), Article 6 (traffic data processing).</li>
-            </ul>
-          </li>
-          <li><strong>For US users (California residents):</strong>
-            <ul>
-              <li>California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA) (California Civil Code §§ 1798.100–1798.199): § 1798.100 (right to know), § 1798.105 (right to delete), § 1798.120 (opt-out of sale/sharing), § 1798.121 (limit sensitive data use), § 1798.125 (non-discrimination), § 1798.140 (definitions of “sale” and “sharing”).</li>
-              <li>Other applicable US federal/state laws, e.g., CAN-SPAM Act (15 U.S.C. § 7701–7713) for marketing communications.</li>
-            </ul>
-          </li>
-        </ul>
-        <p>As a data subject and consumer, you have the right to:</p>
-        <ul>
-          <li>Accurate information about the Service, its features, pricing, and terms (Article 15 of Ukraine’s Consumer Protection Law).</li>
-          <li>Fair and transparent terms and protection against unfair commercial practices (Article 19 of Ukraine’s Consumer Protection Law).</li>
-          <li>Data rights: access, rectification, erasure, restriction, objection, portability (Articles 15–22 GDPR; Article 8 of Ukraine’s Personal Data Law; §§ 1798.100–1798.130 CCPA/CPRA).</li>
-          <li>Non-discrimination when exercising your rights (§ 1798.125 CCPA/CPRA).</li>
-        </ul>
+        <p>We comply with applicable laws based on your location (GDPR/EU, Ukraine data law, CCPA/CPRA). You have the right to clear information, fair terms, and data rights: access, rectification, erasure, restriction, objection, portability, and non-discrimination.</p>
+
         <h2 id="en-2">2. Data We Process</h2>
-        <p>We process only the data necessary to provide, secure, and improve the Service. Categories include:</p>
-        <ul>
-          <li><strong>Account data:</strong>
-            <ul>
-              <li>E-mail address (if you register or sign in).</li>
-              <li>Firebase UID (anonymous for non-registered users or persistent for registered users).</li>
-            </ul>
-          </li>
-          <li><strong>Subscription/purchase data:</strong>
-            <ul>
-              <li>StoreKit product identifiers (Apple App Store).</li>
-              <li>Subscription status (active, expired, canceled).</li>
-              <li>Payment details are not stored by us; they are processed by Apple per their policies.</li>
-            </ul>
-          </li>
-          <li><strong>Push tokens:</strong>
-            <ul>
-              <li>Tokens for push notifications via APNs (Apple Push Notification Service) or FCM (Firebase Cloud Messaging), with your consent.</li>
-            </ul>
-          </li>
-          <li><strong>Dynamic links data:</strong>
-            <ul>
-              <li>Target/localized URLs.</li>
-              <li>A/B testing variants, UTM tags.</li>
-              <li>QR code designs (colors, styles, logo/frame links).</li>
-              <li>Data related to link sharing.</li>
-            </ul>
-          </li>
-          <li><strong>Aggregated analytics for scans/clicks:</strong>
-            <ul>
-              <li>Geography (country, city) based on IP address (raw IPs are not stored in reports, only aggregated keys).</li>
-              <li>Language, device type (iOS, Android, desktop).</li>
-              <li>Referrer (host, path, full URL), UTM parameters, targets.</li>
-              <li>Scan/click counts by hour, day, month, year.</li>
-            </ul>
-          </li>
-          <li><strong>Technical metadata:</strong>
-            <ul>
-              <li>Document identifiers, timestamps, security logs (for diagnostics and anti-abuse measures).</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Categories of personal data collected in the past 12 months: identifiers (e-mail, Firebase UID), account/subscription data, push tokens, link data, and aggregated analytics (see details above). We do not collect “sensitive data” as defined by CPRA, except where strictly necessary for Service security and functionality.</p>
-        <p>Information about data collection is also reflected in the “App Privacy Details” in the App Store, which we keep up to date.</p>
+        <p>Only what’s necessary to operate and improve the Service, e.g. e-mail (when you contact us), app/account data, subscription status (via Apple), push tokens (with consent), technical logs and aggregated analytics. We don’t store payment card data.</p>
+
         <h2 id="en-3">3. Sources</h2>
-        <ul>
-          <li>You directly: during registration, sign-in, link creation/management, subscription management, or consent for notifications.</li>
-          <li>Automatically: via redirects, pixel tags during QR code scans/clicks, and system logs for security and functionality.</li>
-        </ul>
-        <h2 id="en-4">4. Legal Bases for Processing</h2>
-        <p>We process your data based on the following legal grounds:</p>
-        <ul>
-          <li><strong>Performance of a contract</strong> (Article 6(1)(b) GDPR; Article 11(1) Ukraine Personal Data Law):
-            <ul>
-              <li>Providing core Service features (QR code creation/management, redirects, subscription synchronization).</li>
-              <li>Storing your settings and data in Firestore/Storage.</li>
-            </ul>
-          </li>
-          <li><strong>Legitimate interests</strong> (Article 6(1)(f) GDPR):
-            <ul>
-              <li>Ensuring Service security, including preventing fraud, abuse, or cyberattacks.</li>
-              <li>Providing aggregated analytics reports to link owners and improving the Service.</li>
-              <li>Technical support and error diagnostics.</li>
-            </ul>
-          </li>
-          <li><strong>Consent</strong> (Article 6(1)(a) GDPR; Article 5(3) ePrivacy Directive):
-            <ul>
-              <li>Sending push notifications via APNs/FCM.</li>
-              <li>Certain analytics parameters (if applicable).</li>
-            </ul>
-          </li>
-          <li><strong>Legal obligation</strong> (Article 6(1)(c) GDPR; Article 11(3) Ukraine Personal Data Law):
-            <ul>
-              <li>Responding to lawful requests from authorities.</li>
-              <li>Complying with laws against hate speech, war propaganda, terrorism, or separatism (Articles 161, 436, 110 of Ukraine’s Criminal Code; Law No. 638-IV).</li>
-            </ul>
-          </li>
-        </ul>
-        <p>We do not use automated decision-making (including profiling) that produces legal or similarly significant effects (Article 22 GDPR).</p>
+        <p>Provided by you (contact, account, settings) and collected automatically (technical logs, redirects for QR/links) for security and functionality.</p>
+
+        <h2 id="en-4">4. Legal Bases</h2>
+        <p>Contract performance, legitimate interests (security/support/analytics), consent (push/optional analytics), and legal obligations.</p>
+
         <h2 id="en-5">5. Purposes</h2>
-        <ul>
-          <li>User authentication (Firebase Authentication).</li>
-          <li>Storage of objects/settings (Firestore, Cloud Storage).</li>
-          <li>Subscription management (StoreKit, Apple App Store).</li>
-          <li>Sending push notifications (APNs/FCM, with consent).</li>
-          <li>Providing aggregated scan/click analytics to link owners.</li>
-          <li>Ensuring security, preventing fraud, auditing, diagnostics, and improving the Service.</li>
-        </ul>
+        <p>Authentication, storing settings/objects, subscription management, notifications (with consent), aggregated analytics, security and diagnostics.</p>
+
         <h2 id="en-6">6. Cookies & Similar Technologies</h2>
-        <p>We use only strictly necessary cookies on our web pages. If we introduce optional cookies (for analytics or marketing), we will: (i) request your consent via a banner; (ii) provide options to modify your choices; (iii) respect Global Privacy Control (GPC) signals.</p>
-        <p>We do not “sell” or “share” your personal data for targeted or cross-context behavioral advertising as defined by § 1798.140 CCPA/CPRA. If this changes in the future, we will update this Policy and provide a clear opt-out mechanism (“Do Not Sell or Share My Personal Information”).</p>
+        <p>Only strictly necessary cookies on web pages. If we add optional cookies (analytics/marketing), we’ll request consent and honour Global Privacy Control signals.</p>
+
         <h2 id="en-7">7. Sharing & International Transfers</h2>
-        <p>We share data only with trusted processors to provide the Service:</p>
-        <ul>
-          <li><strong>Processors:</strong>
-            <ul>
-              <li>Google Firebase (Authentication, Firestore, Cloud Functions, Cloud Storage, Cloud Messaging, Hosting).</li>
-              <li>Apple (StoreKit for payments, APNs for notifications).</li>
-              <li>Web hosting providers for static pages.</li>
-            </ul>
-          </li>
-          <li><strong>International transfers:</strong> Our processors may process data in the EU, US, or other countries with appropriate safeguards. We enter into Data Processing Agreements (DPAs) and use Standard Contractual Clauses (SCCs) for transfers to third countries, alongside additional technical and organizational security measures.</li>
-          <li><strong>EU/UK representative:</strong> We currently do not appoint a representative under Article 27 GDPR/UK GDPR, as we do not engage in targeted service provision or systematic monitoring of individuals in these jurisdictions on a regular basis. If these requirements become applicable, we will appoint a representative and update this Policy.</li>
-        </ul>
+        <p>We share with trusted processors (e.g., Firebase, Apple) under DPAs/SCCs and apply security measures. No sale or sharing for targeted advertising.</p>
+
         <h2 id="en-8">8. Retention</h2>
-        <p>We retain data only as long as necessary for processing purposes or legal requirements:</p>
-        <ul>
-          <li>Account data (e-mail, Firebase UID): while your account is active or as required for legal obligations (e.g., tax or audit purposes).</li>
-          <li>Push tokens: until consent is withdrawn or the token becomes invalid.</li>
-          <li>Subscription/purchase data: as required for accounting/tax purposes.</li>
-          <li>Aggregated analytics: typically up to 13 months in aggregated form; raw IPs are not stored in reports.</li>
-          <li>Security logs: up to 90 days for diagnostics and anti-abuse measures.</li>
-          <li>Backups: up to 30 days (if applicable).</li>
-        </ul>
-        <p>Retention criteria: legal requirements, security needs, operational requirements, and data minimization (per Article 5(1)(c) GDPR).</p>
+        <p>Kept only as long as needed for purposes/legal requirements (e.g., accounting, security logs). Data minimisation applies.</p>
+
         <h2 id="en-9">9. Your Rights & Requests</h2>
-        <p>You can exercise your rights by contacting <a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a> or deleting your account via the app’s settings.</p>
-        <ul>
-          <li>GDPR rights (Articles 15–22): access, rectification, erasure, restriction, objection, data portability.</li>
-          <li>Ukraine Personal Data Law (Article 8): access, rectification, erasure, objection.</li>
-          <li>CCPA/CPRA (§§ 1798.100–1798.130): know, delete, opt-out of sale/sharing, limit sensitive data use, correct inaccuracies, non-discrimination.</li>
-          <li>Non-discrimination: We do not engage in discriminatory practices against users exercising their rights under CCPA/CPRA (§ 1798.125).</li>
-          <li>Authorized agent: You may submit requests through an authorized agent; we may require proof of authorization and identity verification.</li>
-        </ul>
-        <p><strong>Request process:</strong></p>
-        <ul>
-          <li>We verify your identity via signed-in account or email match.</li>
-          <li>Response time: within 30 days (GDPR, Article 12(3)) or 45 days (CCPA/CPRA, § 1798.130), with possible extensions for complex cases (up to 60/90 days).</li>
-          <li>If you believe our actions violate your rights, you may contact a supervisory authority:
-            <ul>
-              <li>In Ukraine: Ukrainian Parliament Commissioner for Human Rights (ombudsman.gov.ua).</li>
-              <li>In the EU: your national Data Protection Authority (DPA).</li>
-              <li>In California: Office of the California Attorney General (oag.ca.gov/privacy).</li>
-            </ul>
-          </li>
-        </ul>
+        <p>Contact us at <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a>. We verify identity and respond within legal timeframes (GDPR/CCPA/CPRA).</p>
+
         <h2 id="en-10">10. Children</h2>
-        <p>We do not target the Service at children and do not knowingly collect personal data from children under 13 years (or the applicable age of consent in your jurisdiction). If you are a parent/guardian and believe a child has provided us with data without your consent, contact us at energymotort@gmail.com, and we will promptly delete such data.</p>
+        <p>We don’t target children or knowingly collect data from children under 13 (or local age of consent). If you believe a child provided data, contact us to delete it.</p>
+
         <h2 id="en-11">11. Security & Incidents</h2>
-        <p>We implement modern technical and organizational security measures, including:</p>
-        <ul>
-          <li>Data encryption in transit (TLS 1.2 or higher).</li>
-          <li>Firestore/Cloud Storage security rules.</li>
-          <li>App Check to prevent unauthorized access.</li>
-          <li>Least-privilege access controls.</li>
-          <li>Multi-factor authentication (MFA) for administrators.</li>
-          <li>Event logging for audit and diagnostics.</li>
-        </ul>
-        <p>In case of a data breach posing a high risk to your rights and freedoms, we will:</p>
-        <ul>
-          <li>Notify the competent authority within 72 hours (Article 33 GDPR).</li>
-          <li>Inform you without undue delay (Article 34 GDPR; § 1798.150 CCPA/CPRA).</li>
-        </ul>
-        <p>No system is 100% secure, but we take all reasonable steps to protect your data.</p>
+        <p>Encryption in transit, access controls, least-privilege, MFA for admins, audit logs. We notify authorities/users when required by law.</p>
+
         <h2 id="en-12">12. Content & Law Compliance</h2>
-        <p>We display only user-generated content (QR codes from user-provided data). Rights to the content remain with users; users grant us a non-exclusive license to host/process it for Service operation. We promptly respond to notices of rights violations (DMCA-like procedure). Contact: energymotort@gmail.com.</p>
-        <p>We prohibit use of the Service to host or distribute content that:</p>
-        <ul>
-          <li>Incites hatred (Article 161 Ukraine Criminal Code).</li>
-          <li>Promotes war or terrorism (Article 436; Law No. 638-IV, Article 1).</li>
-          <li>Calls for separatism (Article 110).</li>
-          <li>Incites violence, discrimination, or violates privacy/intellectual property rights.</li>
-          <li>Includes malware, phishing, or fraud.</li>
-        </ul>
-        <p>We reserve the right to:</p>
-        <ul>
-          <li>Remove or block such content or related links.</li>
-          <li>Suspend or terminate access for violators.</li>
-          <li>Cooperate with authorities by providing information as required by law.</li>
-        </ul>
+        <p>Users own their content. Unlawful content (hate, violence, terrorism, malware, IP violations) is prohibited; we may remove or block it and cooperate with authorities.</p>
+
         <h2 id="en-13">13. Sub-processors</h2>
-        <p>We use the following sub-processors to provide the Service:</p>
-        <ul>
-          <li>Google Firebase: Authentication, Firestore, Cloud Functions, Cloud Storage, Cloud Messaging, Hosting.</li>
-          <li>Apple: StoreKit (payment processing), APNs (notifications).</li>
-          <li>Web hosting providers: for hosting static pages.</li>
-        </ul>
-        <p>A full list of sub-processors is available upon request (email <a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a>). We enter into Data Processing Agreements (DPAs) with all sub-processors per Article 28 GDPR.</p>
+        <p>Key sub-processors: Google Firebase (Auth/Firestore/Functions/Storage/Messaging/Hosting), Apple (StoreKit/APNs), static hosting providers. Full list on request.</p>
+
         <h2 id="en-14">14. Changes</h2>
-        <p>We may update this Policy to reflect changes in law, our processes, or Service functionality. Updates are posted on our website or in the app with an effective date. Continued use of the Service after changes signifies your acceptance.</p>
+        <p>We may update this Policy and post the effective date. Continued use means acceptance.</p>
+
         <h2 id="en-15">15. Contact</h2>
-        <p>Sole Proprietor Oleksii Zaitsev (CoreLogic)<br>
-           E-mail: <a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a><br>
-           Phone: +380956171507<br>
+        <p>Sole Proprietor Oleksii Zaitsev (ixonity)<br>
+           E-mail: <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a><br>
+           Phone: <a href="tel:+380771817071">+380771817071</a><br>
+           Website: <a href="https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/" target="_blank" rel="noopener">ixonity-site</a><br>
            Response time: within 3 business days (Kyiv time).</p>
-        <p class="muted" style="margin-top:18px">© 2025 CoreLogic · All rights reserved.</p>
+        <p class="muted" style="margin-top:18px">© 2025 ixonity · All rights reserved.</p>
       </section>
 
+      <!-- UA -->
       <section id="uk-top" class="lang lang-uk">
         <h1>Політика конфіденційності</h1>
         <p class="muted">Останнє оновлення: 27 вересня 2025 року</p>
-        <p>Ця Політика конфіденційності («Політика») пояснює, як ФОП Зайцев Олексій Юрійович (бренд CoreLogic) («ми», «нас», «наш»), як контролер даних, збирає, використовує, зберігає, захищає та обробляє ваші персональні дані під час використання мобільного застосунку «QR Studio» («Сервіс») та пов’язаних веб- і бекенд-сервісів. Ми прагнемо забезпечити максимальну прозорість, безпеку та відповідність вимогам законодавства України, Європейського Союзу (ЄС/ЄЕЗ) та Сполучених Штатів Америки (зокрема, штату Каліфорнія).</p>
+
+        <p>Ця Політика пояснює, як ФОП Зайцев Олексій (<strong>ixonity</strong>) («ми») збирає, використовує, зберігає та захищає персональні дані під час використання наших застосунків і пов’язаних веб/бекенд-сервісів («Сервіс»). Ми дотримуємося вимог законодавства України, ЄС/ЄЕЗ та США.</p>
+
         <p><strong>Контакти контролера даних:</strong></p>
         <ul>
-          <li>Найменування: ФОП Зайцев Олексій Юрійович (CoreLogic)</li>
-          <li>Електронна пошта: energymotort@gmail.com</li>
-          <li>Телефон: +380956171507</li>
-          <li>Поштова адреса: звернення приймаються електронною поштою на energymotort@gmail.com</li>
+          <li>Найменування: ФОП Зайцев Олексій (ixonity)</li>
+          <li>Е-мейл: <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a></li>
+          <li>Телефон: <a href="tel:+380771817071">+380771817071</a></li>
+          <li>Вебсайт: <a href="https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/" target="_blank" rel="noopener">https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/</a></li>
+          <li>Поштова адреса: звернення приймаємо електронною поштою.</li>
         </ul>
+
         <h2 id="uk-1">1. Нормативна база та права споживачів</h2>
-        <p>Ми діємо відповідно до застосовного законодавства, залежно від вашого місцезнаходження, зокрема:</p>
-        <ul>
-          <li><strong>В Україні:</strong>
-            <ul>
-              <li>Закон України «Про захист персональних даних» № 2297-VI від 01.06.2010 (стаття 6 – загальні вимоги до обробки персональних даних; стаття 8 – права суб’єктів даних; стаття 11 – правові підстави обробки).</li>
-              <li>Закон України «Про захист прав споживачів» № 3153-IX від 10.06.2023 (стаття 8 – права у разі порушення умов договору; стаття 13 – право на інформацію про продукцію; стаття 15 – право на інформацію про товари/послуги; стаття 19 – захист від недобросовісної комерційної практики).</li>
-              <li>Кримінальний кодекс України: стаття 161 (протидія розпалюванню ворожнечі), стаття 436 (протидія пропаганді війни), стаття 110 (протидія сепаратизму).</li>
-              <li>Закон України «Про боротьбу з тероризмом» № 638-IV від 20.03.2003 (стаття 1 – визначення тероризму; стаття 24 – відповідальність за сприяння тероризму).</li>
-            </ul>
-          </li>
-          <li><strong>Для користувачів з ЄС/ЄЕЗ:</strong>
-            <ul>
-              <li>Загальний регламент про захист даних (GDPR) (Regulation (EU) 2016/679): статті 5 (принципи обробки даних), 6 (правові підстави), 12–22 (права суб’єктів даних), 32 (безпека обробки), 33–34 (повідомлення про порушення), 46 (трансфер даних).</li>
-              <li>Директива про конфіденційність в електронних комунікаціях (ePrivacy Directive 2002/58/EC): стаття 5(3) (згода на використання cookies та подібних технологій), стаття 6 (обробка трафік-даних).</li>
-            </ul>
-          </li>
-          <li><strong>Для користувачів зі США (резиденти Каліфорнії):</strong>
-            <ul>
-              <li>California Consumer Privacy Act (CCPA) та California Privacy Rights Act (CPRA) (California Civil Code §§ 1798.100–1798.199): § 1798.100 (право на знання), § 1798.105 (право на видалення), § 1798.120 (право на відмову від продажу/поширення), § 1798.121 (обмеження використання чутливих даних), § 1798.125 (заборона дискримінації), § 1798.140 (визначення «продажу» та «поширення»).</li>
-              <li>Інші федеральні та штатні закони США, які можуть застосовуватися, наприклад, CAN-SPAM Act (15 U.S.C. § 7701–7713) щодо маркетингових комунікацій.</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Ви, як суб’єкт даних і споживач, маєте право на:</p>
-        <ul>
-          <li>Достовірну інформацію про Сервіс, його функції, тарифи та умови (стаття 15 Закону України «Про захист прав споживачів»).</li>
-          <li>Справедливі та прозорі умови використання, захист від недобросовісної комерційної практики (стаття 19 Закону України «Про захист прав споживачів»).</li>
-          <li>Права щодо персональних даних: доступ, виправлення, видалення, обмеження обробки, заперечення, перенесення даних (статті 15–22 GDPR; стаття 8 Закону України «Про захист персональних даних»; §§ 1798.100–1798.130 CCPA/CPRA).</li>
-          <li>Право на недискримінацію при реалізації ваших прав (стаття 1798.125 CCPA/CPRA).</li>
-        </ul>
-        <h2 id="uk-2">2. Які дані ми обробляємо</h2>
-        <p>Ми обробляємо лише ті дані, які необхідні для надання Сервісу, його безпеки та вдосконалення. Категорії даних:</p>
-        <ul>
-          <li><strong>Облікові дані:</strong>
-            <ul>
-              <li>Електронна пошта (за умови реєстрації чи входу).</li>
-              <li>Унікальний ідентифікатор Firebase UID (анонімний для незареєстрованих користувачів або постійний для зареєстрованих).</li>
-            </ul>
-          </li>
-          <li><strong>Дані про підписки та покупки:</strong>
-            <ul>
-              <li>Ідентифікатори продуктів StoreKit (Apple App Store).</li>
-              <li>Статус підписки (активна, закінчена, скасована).</li>
-              <li>Платіжні реквізити не зберігаються нами, їх обробляє Apple відповідно до їхньої політики.</li>
-            </ul>
-          </li>
-          <li><strong>Пуш-токени:</strong>
-            <ul>
-              <li>Токени для push-сповіщень через APNs або FCM (за вашою згодою).</li>
-            </ul>
-          </li>
-          <li><strong>Дані динамічних посилань:</strong>
-            <ul>
-              <li>Цільові та локалізовані URL-адреси.</li>
-              <li>Варіанти A/B-тестування, UTM-мітки.</li>
-              <li>Дизайн QR-кодів (кольори, стилі, посилання на логотипи чи рамки).</li>
-              <li>Дані про спільний доступ до посилань.</li>
-            </ul>
-          </li>
-          <li><strong>Агрегована аналітика сканувань/кліків:</strong>
-            <ul>
-              <li>Географія (країна, місто) на основі IP-адреси (сирі IP-адреси не зберігаються в звітах, лише агреговані ключі).</li>
-              <li>Мова, тип пристрою (iOS, Android, desktop).</li>
-              <li>Реферер (хост, шлях, повний URL), UTM-параметри, цілі (targets).</li>
-              <li>Лічильники сканувань/кліків за годинами, днями, місяцями, роками.</li>
-            </ul>
-          </li>
-          <li><strong>Технічні метадані:</strong>
-            <ul>
-              <li>Ідентифікатори документів, часові мітки, журнали безпеки (для діагностики та захисту від зловживань).</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Категорії персональних даних, зібраних за останні 12 місяців: ідентифікатори (електронна пошта, Firebase UID), дані облікового запису/підписок, пуш-токени, дані посилань та агрегована аналітика (див. деталі вище). Ми не збираємо «чутливі дані» у розумінні CPRA, окрім випадків, прямо необхідних для безпеки та функціонування Сервісу.</p>
-        <p>Інформація про збирання даних відображена також у «App Privacy Details» в App Store. Ми підтримуємо її в актуальному стані.</p>
-        <h2 id="uk-3">3. Джерела даних</h2>
-        <ul>
-          <li>Дані, надані вами: під час реєстрації, входу, створення чи керування посиланнями, керування підпискою, надання згоди на push-сповіщення.</li>
-          <li>Автоматично зібрані дані: через редіректи, піксельні теги під час сканування/кліків та системні журнали для безпеки й функціональності.</li>
-        </ul>
-        <h2 id="uk-4">4. Правові підстави обробки</h2>
-        <p>Ми обробляємо ваші дані на таких правових підставах:</p>
-        <ul>
-          <li><strong>Виконання договору</strong> (стаття 6(1)(b) GDPR; стаття 11(1) Закону України «Про захист персональних даних»):
-            <ul>
-              <li>Надання основних функцій Сервісу (створення/керування QR-кодами, перенаправлення, синхронізація підписок).</li>
-              <li>Зберігання ваших налаштувань і даних у Firestore/Storage.</li>
-            </ul>
-          </li>
-          <li><strong>Законний інтерес</strong> (стаття 6(1)(f) GDPR):
-            <ul>
-              <li>Забезпечення безпеки Сервісу (захист від шахрайства, зловживань, кібератак).</li>
-              <li>Надання агрегованих звітів власникам посилань та покращення Сервісу.</li>
-              <li>Технічна підтримка й діагностика помилок.</li>
-            </ul>
-          </li>
-          <li><strong>Згода</strong> (стаття 6(1)(a) GDPR; стаття 5(3) ePrivacy Directive):
-            <ul>
-              <li>Відправлення push-сповіщень через APNs/FCM.</li>
-              <li>Використання окремих аналітичних параметрів (за потреби).</li>
-            </ul>
-          </li>
-          <li><strong>Правовий обов’язок</strong> (стаття 6(1)(c) GDPR; стаття 11(3) Закону України «Про захист персональних даних»):
-            <ul>
-              <li>Виконання законних запитів органів влади.</li>
-              <li>Дотримання законодавства щодо протидії мові ворожнечі, пропаганді війни, тероризму чи сепаратизму (статті 161, 436, 110 КК України; Закон № 638-IV).</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Ми не застосовуємо автоматизоване ухвалення рішень, включно з профайлінгом, яке створює юридичні чи подібні істотні наслідки (стаття 22 GDPR).</p>
+        <p>Ми діємо відповідно до GDPR/ЄС, закону України про персональні дані та CCPA/CPRA. Ваші права: доступ, виправлення, видалення, обмеження, заперечення, портативність, відсутність дискримінації.</p>
+
+        <h2 id="uk-2">2. Дані, які ми обробляємо</h2>
+        <p>Лише необхідні дані: електронна пошта (коли ви звертаєтесь), дані облікового запису в застосунку, статус підписки (через Apple), пуш-токени (за згодою), технічні журнали та агрегована аналітика. Платіжні дані карт ми не зберігаємо.</p>
+
+        <h2 id="uk-3">3. Джерела</h2>
+        <p>Надані вами (контакт/акаунт) та автоматично зібрані (технічні журнали, редіректи для QR/посилань) — для безпеки та функціональності.</p>
+
+        <h2 id="uk-4">4. Правові підстави</h2>
+        <p>Виконання договору, законний інтерес (безпека/підтримка/аналітика), згода (push/опційна аналітика) та правові обов’язки.</p>
+
         <h2 id="uk-5">5. Мета обробки</h2>
-        <ul>
-          <li>Автентифікація користувачів (Firebase Authentication).</li>
-          <li>Зберігання об’єктів і налаштувань (Firestore, Cloud Storage).</li>
-          <li>Керування підписками (StoreKit, Apple App Store).</li>
-          <li>Надсилання push-сповіщень (APNs/FCM за вашою згодою).</li>
-          <li>Надання агрегованої аналітики власникам посилань.</li>
-          <li>Безпека, протидія шахрайству, аудит, діагностика та покращення Сервісу.</li>
-        </ul>
+        <p>Автентифікація, зберігання налаштувань/об’єктів, керування підпискою, сповіщення (за згодою), агрегована аналітика, безпека та діагностика.</p>
+
         <h2 id="uk-6">6. Cookies та подібні технології</h2>
-        <p>На наших веб-сторінках ми використовуємо лише строго необхідні cookies. Якщо ми впровадимо необов’язкові cookies (аналітика/маркетинг), ми: (i) запросимо вашу згоду через банер; (ii) дамо змогу змінювати вибір; (iii) поважатимемо сигнали Global Privacy Control (GPC).</p>
-        <p>Ми не “продаємо” і не “поширюємо” ваші персональні дані для цільової або крос-контекстної поведінкової реклами у значенні § 1798.140 CCPA/CPRA. Якщо в майбутньому це зміниться, ми оновимо цю Політику і надамо явний механізм відмови (“Do Not Sell or Share My Personal Information”).</p>
-        <h2 id="uk-7">7. Передача даних та міжнародні трансфери</h2>
-        <p>Ми передаємо дані лише перевіреним обробникам для надання Сервісу:</p>
-        <ul>
-          <li><strong>Обробники:</strong>
-            <ul>
-              <li>Google Firebase (Authentication, Firestore, Cloud Functions, Cloud Storage, Cloud Messaging, Hosting).</li>
-              <li>Apple (StoreKit для платежів, APNs для сповіщень).</li>
-              <li>Провайдери веб-хостингу для статичних сторінок.</li>
-            </ul>
-          </li>
-          <li><strong>Міжнародні трансфери:</strong> Наші постачальники можуть обробляти дані в ЄС, США або інших країнах з належними гарантіями. Ми укладаємо договори зобов’язань обробників (DPA) та використовуємо Стандартні договірні положення (SCC) для трансферів до третіх країн, а також застосовуємо додаткові технічні та організаційні заходи безпеки.</li>
-          <li><strong>Представник в ЄС та Великій Британії:</strong> Наразі ми не призначаємо представника відповідно до статті 27 GDPR/UK GDPR, оскільки не здійснюємо цілеспрямованого надання послуг або систематичного моніторингу поведінки осіб у цих юрисдикціях на регулярній основі. Якщо вимоги стануть застосовними, ми призначимо відповідного представника(ів) і оновимо цю Політику.</li>
-        </ul>
-        <h2 id="uk-8">8. Зберігання даних</h2>
-        <p>Ми зберігаємо дані лише стільки, скільки необхідно для цілей обробки або вимог закону:</p>
-        <ul>
-          <li>Дані облікового запису (електронна пошта, Firebase UID): доки акаунт активний або доки це необхідно для правових зобов’язань (наприклад, для податкового чи аудиторського обліку).</li>
-          <li>Пуш-токени: доки діє згода або токен не стане недійсним.</li>
-          <li>Дані підписок/покупок: доки це необхідно для бухгалтерського/податкового обліку.</li>
-          <li>Агрегована аналітика: зазвичай до 13 місяців у агрегованій формі; сирі IP-адреси не зберігаються у звітах.</li>
-          <li>Журнали безпеки: до 90 днів для діагностики та захисту від зловживань.</li>
-          <li>Резервні копії: до 30 днів (за наявності).</li>
-        </ul>
-        <p>Критерії зберігання: правові вимоги, потреби безпеки, операційні потреби, мінімізація даних (стаття 5(1)(c) GDPR).</p>
+        <p>На веб-сторінках — лише строго необхідні cookies. Якщо додамо необов’язкові cookies (аналітика/маркетинг) — запросимо згоду та поважатимемо сигнали GPC.</p>
+
+        <h2 id="uk-7">7. Передача даних і трансфери</h2>
+        <p>Передаємо лише перевіреним процесорам (напр., Firebase, Apple) за договорами DPA/SCC та з належною безпекою. Не продаємо й не поширюємо дані для таргетованої реклами.</p>
+
+        <h2 id="uk-8">8. Зберігання</h2>
+        <p>Зберігаємо рівно стільки, скільки потрібно для цілей/закону (облік, журнали безпеки). Дотримуємося мінімізації даних.</p>
+
         <h2 id="uk-9">9. Ваші права та звернення</h2>
-        <p>Ви можете реалізувати права, звернувшись на <a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a> або видаливши акаунт у налаштуваннях застосунку.</p>
-        <ul>
-          <li>Права за GDPR (статті 15–22): доступ, виправлення, видалення, обмеження, заперечення, перенесення даних.</li>
-          <li>Права за Законом України (стаття 8): доступ, виправлення, видалення, заперечення.</li>
-          <li>Права за CCPA/CPRA (§§ 1798.100–1798.130): право знати, видалити, відмовитись від продажу/поширення, обмежити використання чутливих даних, виправити неточності, недискримінація.</li>
-          <li>Недискримінація: ми не застосовуємо дискримінаційні практики щодо користувачів, які реалізують свої права згідно з CCPA/CPRA (§ 1798.125).</li>
-          <li>Уповноважений агент: ви можете подати запит через уповноваженого агента; ми можемо вимагати підтвердження повноважень і верифікації вашої особи.</li>
-        </ul>
-        <p><strong>Процедура запиту:</strong></p>
-        <ul>
-          <li>Верифікація особи через акаунт або збіг електронної пошти.</li>
-          <li>Строки відповіді: 30 днів (GDPR) або 45 днів (CCPA/CPRA) з можливим продовженням (до 60/90 днів).</li>
-          <li>Якщо ви вважаєте, що наші дії порушують ваші права, ви можете звернутися до наглядового органу:
-            <ul>
-              <li>В Україні: Уповноважений Верховної Ради з прав людини (ombudsman.gov.ua).</li>
-              <li>В ЄС: відповідний орган із захисту даних (DPA) за місцем проживання.</li>
-              <li>У Каліфорнії: Офіс Генерального прокурора штату (oag.ca.gov/privacy).</li>
-            </ul>
-          </li>
-        </ul>
+        <p>Звертайтесь на <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a>. Ми верифікуємо особу і відповідаємо у встановлені строки (GDPR/CCPA/CPRA).</p>
+
         <h2 id="uk-10">10. Діти</h2>
-        <p>Ми не націлюємо Сервіс на дітей і не збираємо свідомо персональні дані дітей молодше 13 років (або вищого віку згоди у вашій юрисдикції). Якщо ви — батьки/опікуни і вважаєте, що дитина надала нам дані без вашої згоди, зверніться на energymotort@gmail.com — ми оперативно видалимо такі дані.</p>
+        <p>Сервіс не націлений на дітей; свідомо не збираємо дані дітей до 13 років (або віку згоди у вашій юрисдикції).</p>
+
         <h2 id="uk-11">11. Безпека та інциденти</h2>
-        <p>Ми застосовуємо сучасні технічні та організаційні заходи безпеки, зокрема:</p>
-        <ul>
-          <li>Шифрування в транзиті (TLS 1.2+).</li>
-          <li>Правила безпеки Firestore/Cloud Storage.</li>
-          <li>App Check.</li>
-          <li>Принцип найменших привілеїв.</li>
-          <li>MFA для адміністраторів.</li>
-          <li>Журналювання подій.</li>
-        </ul>
-        <p>У разі порушення безпеки даних з високим ризиком для ваших прав ми:</p>
-        <ul>
-          <li>Повідомимо компетентний орган протягом 72 годин (стаття 33 GDPR).</li>
-          <li>Повідомимо вас без зволікань (стаття 34 GDPR; § 1798.150 CCPA/CPRA).</li>
-        </ul>
-        <p>Жодна система не гарантує 100% безпеки, але ми вживаємо розумних заходів.</p>
-        <h2 id="uk-12">12. Контент та дотримання закону</h2>
-        <p>Ми відображаємо лише контент, створений користувачами (QR-коди з наданих даних). Права на контент залишаються за користувачами; користувач надає нам невиключну ліцензію на хостинг/обробку для роботи Сервісу. Ми оперативно реагуємо на повідомлення про порушення прав (процедура, аналогічна DMCA). Контакт: energymotort@gmail.com.</p>
-        <p>Заборонено використовувати Сервіс для контенту, що:</p>
-        <ul>
-          <li>Розпалює ворожнечу (стаття 161 КК України).</li>
-          <li>Пропагує війну чи тероризм (стаття 436; Закон № 638-IV, стаття 1).</li>
-          <li>Закликає до сепаратизму (стаття 110).</li>
-          <li>Містить насильство/дискримінацію, порушує приватність чи ІВ.</li>
-          <li>Містить шкідливе ПЗ, фішинг або шахрайство.</li>
-        </ul>
-        <p>Ми залишаємо за собою право:</p>
-        <ul>
-          <li>Видаляти/блокувати такий контент або пов’язані посилання.</li>
-          <li>Призупиняти/припиняти доступ порушникам.</li>
-          <li>Співпрацювати з органами влади в межах закону.</li>
-        </ul>
+        <p>Шифрування в транзиті, контроль доступу, найменші привілеї, MFA для адміністраторів, журнали аудиту. Повідомляємо у передбачених законом випадках.</p>
+
+        <h2 id="uk-12">12. Контент і дотримання закону</h2>
+        <p>Права на контент належать користувачам. Заборонено незаконний контент (мова ворожнечі, насильство, тероризм, шкідливе ПЗ, порушення ІВ). Можемо видаляти/блокувати та співпрацювати з органами влади.</p>
+
         <h2 id="uk-13">13. Субпроцесори</h2>
-        <p>Ми використовуємо таких субпроцесорів для надання Сервісу:</p>
-        <ul>
-          <li>Google Firebase: Authentication, Firestore, Cloud Functions, Cloud Storage, Cloud Messaging, Hosting.</li>
-          <li>Apple: StoreKit (платежі), APNs (сповіщення).</li>
-          <li>Провайдери статичного хостингу: для розміщення веб-сторінок.</li>
-        </ul>
-        <p>Повний перелік доступний за запитом (<a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a>). DPA укладено з усіма субпроцесорами (стаття 28 GDPR).</p>
+        <p>Основні субпроцесори: Google Firebase (Auth/Firestore/Functions/Storage/Messaging/Hosting), Apple (StoreKit/APNs), провайдери статичного хостингу. Повний перелік — за запитом.</p>
+
         <h2 id="uk-14">14. Зміни до Політики</h2>
-        <p>Ми можемо оновлювати цю Політику згідно зі змінами законодавства, процесів або функціональності. Оновлення публікуються з датою набрання чинності. Подальше використання означає згоду.</p>
+        <p>Можемо оновлювати цю Політику; публікуємо дату набрання чинності. Подальше використання означає згоду.</p>
+
         <h2 id="uk-15">15. Контакти</h2>
-        <p>ФОП Зайцев Олексій Юрійович (CoreLogic)<br>
-           Електронна пошта: <a href="mailto:energymotort@gmail.com">energymotort@gmail.com</a><br>
-           Телефон: +380956171507<br>
-           Час відповіді: до 3 робочих днів (за київським часом).</p>
-        <p class="muted" style="margin-top:18px">© 2025 CoreLogic · Усі права захищено.</p>
+        <p>ФОП Зайцев Олексій (ixonity)<br>
+           Е-мейл: <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a><br>
+           Телефон: <a href="tel:+380771817071">+380771817071</a><br>
+           Вебсайт: <a href="https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/" target="_blank" rel="noopener">ixonity-site</a><br>
+           Час відповіді: до 3 роб. днів (за київським часом).</p>
+        <p class="muted" style="margin-top:18px">© 2025 ixonity · Усі права захищено.</p>
       </section>
     </article>
   </main>
@@ -580,15 +210,15 @@
       <a href="#en-1">1. Legal Framework & Consumer Rights</a>
       <a href="#en-2">2. Data We Process</a>
       <a href="#en-3">3. Sources</a>
-      <a href="#en-4">4. Legal Bases for Processing</a>
+      <a href="#en-4">4. Legal Bases</a>
       <a href="#en-5">5. Purposes</a>
-      <a href="#en-6">6. Cookies & Similar Technologies</a>
-      <a href="#en-7">7. Sharing & International Transfers</a>
+      <a href="#en-6">6. Cookies</a>
+      <a href="#en-7">7. Sharing & Transfers</a>
       <a href="#en-8">8. Retention</a>
-      <a href="#en-9">9. Your Rights & Requests</a>
+      <a href="#en-9">9. Your Rights</a>
       <a href="#en-10">10. Children</a>
-      <a href="#en-11">11. Security & Incidents</a>
-      <a href="#en-12">12. Content & Law Compliance</a>
+      <a href="#en-11">11. Security</a>
+      <a href="#en-12">12. Content & Law</a>
       <a href="#en-13">13. Sub-processors</a>
       <a href="#en-14">14. Changes</a>
       <a href="#en-15">15. Contact</a>
@@ -596,20 +226,20 @@
     <div class="toc-uk">
       <h3>Зміст</h3>
       <a href="#uk-top">Верх</a>
-      <a href="#uk-1">1. Нормативна база та права споживачів</a>
-      <a href="#uk-2">2. Які дані ми обробляємо</a>
-      <a href="#uk-3">3. Джерела даних</a>
-      <a href="#uk-4">4. Правові підстави обробки</a>
-      <a href="#uk-5">5. Мета обробки</a>
-      <a href="#uk-6">6. Cookies та подібні технології</a>
-      <a href="#uk-7">7. Передача даних та трансфери</a>
-      <a href="#uk-8">8. Зберігання даних</a>
-      <a href="#uk-9">9. Ваші права та звернення</a>
+      <a href="#uk-1">1. Нормативна база</a>
+      <a href="#uk-2">2. Дані</a>
+      <a href="#uk-3">3. Джерела</a>
+      <a href="#uk-4">4. Підстави</a>
+      <a href="#uk-5">5. Мета</a>
+      <a href="#uk-6">6. Cookies</a>
+      <a href="#uk-7">7. Передача</a>
+      <a href="#uk-8">8. Зберігання</a>
+      <a href="#uk-9">9. Права</a>
       <a href="#uk-10">10. Діти</a>
-      <a href="#uk-11">11. Безпека та інциденти</a>
-      <a href="#uk-12">12. Контент і дотримання закону</a>
+      <a href="#uk-11">11. Безпека</a>
+      <a href="#uk-12">12. Контент і закон</a>
       <a href="#uk-13">13. Субпроцесори</a>
-      <a href="#uk-14">14. Зміни до Політики</a>
+      <a href="#uk-14">14. Зміни</a>
       <a href="#uk-15">15. Контакти</a>
     </div>
   </div>
@@ -617,21 +247,5 @@
   <div class="fab-row">
     <a class="fab" href="#top" aria-label="Back to top">Top ↑</a>
   </div>
-
-  <script>
-    (function(){
-      const toc = document.getElementById('toc-sheet');
-      const toggle = document.getElementById('toc-open');
-      if(!toc||!toggle) return;
-      toc.addEventListener('click', function(e){
-        const a = e.target.closest('a');
-        if(a && a.getAttribute('href') && a.getAttribute('href').startsWith('#')){
-          toggle.checked = false;
-        }
-      });
-      window.addEventListener('hashchange', ()=>{ toggle.checked = false; });
-    })();
-  </script>
 </body>
 </html>
-```
