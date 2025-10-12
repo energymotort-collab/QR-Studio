@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2025-12-11T00:00:00Z",
+  "generatedAt": "2025-13-11T00:00:00Z",
   "documents": {
     "privacy": {
       "defaultLocale": "uk",
       "locales": {
         "uk": {
-          "version": "2025-12-11",
+          "version": "2025-13-11",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-uk.html"
         }
       }
@@ -14,7 +14,7 @@
       "defaultLocale": "uk",
       "locales": {
         "uk": {
-          "version": "2025-12-11",
+          "version": "2025-13-11",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-uk.html"
         }
       }
