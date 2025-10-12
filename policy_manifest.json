@@ -1,18 +1,23 @@
 {
-  "privacy": {
-    "uk": {
-      "version": "2025-10-12-1",
-      "updatedAt": "2025-10-12T18:00:00Z",
-      "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-uk-2025-10-12.html",
-      "locale": "uk"
-    }
-  },
-  "terms": {
-    "uk": {
-      "version": "2025-10-12-1",
-      "updatedAt": "2025-10-12T18:00:00Z",
-      "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-uk-2025-10-12.html",
-      "locale": "uk"
+  "generatedAt": "2025-10-12T00:00:00Z",
+  "documents": {
+    "privacy": {
+      "defaultLocale": "uk",
+      "locales": {
+        "uk": {
+          "version": "2025-10-12",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-uk-2025-10-12.html"
+        }
+      }
+    },
+    "terms": {
+      "defaultLocale": "uk",
+      "locales": {
+        "uk": {
+          "version": "2025-10-12",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-uk-2025-10-12.html"
+        }
+      }
     }
   }
 }
