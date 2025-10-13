@@ -52,9 +52,13 @@
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-id-2025-10-12.html"
         },
-         "es-es": {
+         "es": {
           "version": "2025-12-21",
-          "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-es-es-2025-10-12.html"
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-es-2025-10-12.html"
+        },
+        "es-mx": {
+          "version": "2025-12-21",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-es-mx-2025-10-12.html"
         },
         "en": {
           "version": "2025-12-21",
@@ -113,9 +117,13 @@
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-id-2025-10-12.html"
         },
-           "es-es": {
+           "es": {
           "version": "2025-12-21",
-          "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-es-es-2025-10-12.html"
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-es-2025-10-12.html"
+        },
+          "es-mx": {
+          "version": "2025-12-21",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-es-mx-2025-10-12.html"
         }, 
         "en": {
           "version": "2025-12-21",
