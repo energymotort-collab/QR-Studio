@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Termes d'Ús — QR‑Ixonity (Ixonity)</title>
+  <meta name="description" content="Termes d'Ús per al servei QR‑Ixonity (Ixonity)." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #111;
+      --bg: #fff;
+      --muted: #666;
+      --accent: #6b5cff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #eee; --bg: #0b0b0f; --muted: #aaa; --accent: #9fa0ff; }
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 24px 0 8px; }
+    h3 { font-size: 1.1rem; margin: 18px 0 6px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 20px; }
+    .muted { color: var(--muted); }
+    .badge { display: inline-block; background: rgba(107,92,255,0.12); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: .85rem; }
+    hr { border: 0; border-top: 1px solid rgba(127,127,127,.2); margin: 24px 0; }
+    footer { margin-top: 32px; font-size: .9rem; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Termes d'Ús de QR‑Ixonity</h1>
+    <p class="muted">Última actualització: 11 d'octubre de 2025, 20:09 EEST • Versió: 2025‑10‑12‑1</p>
+
+    <p>Aquests Termes d'Ús (d'ara endavant — «els Termes») regulen la teva interacció amb l'aplicació mòbil QR‑Ixonity (marca Ixonity), els serveis web, la infraestructura de backend i les funcionalitats associades (d'ara endavant — «el Servei»), proporcionats per l'empresari individual Zaitsev Oleksii Yuriyovych (d'ara endavant — «nosaltres», «nosaltres», «Responsable del Tractament»). En utilitzar el Servei, acceptes aquests Termes. Si no estàs d'acord — deixa d'utilitzar el Servei. Ens esforcem per fer que aquestes regles siguin el més clares i justes possible.</p>
+
+    <h2>1. Disposicions Generals</h2>
+    <h3>1.1 Acceptació dels Termes</h3>
+    <p>L'ús del Servei implica l'acceptació total d'aquests Termes i de la nostra Política de Privacitat (disponible a l'aplicació). Ambdós documents són legalment vinculants. Ens reservem el dret d'actualitzar els Termes. Et notificarem sobre canvis significatius a l'aplicació, indicant la nova data. L'ús continuat després dels canvis implica la teva acceptació.</p>
+    <h3>1.2 Finalitat del Servei</h3>
+    <p>QR‑Ixonity està dissenyat per crear, personalitzar i analitzar codis QR per a fins personals o comercials. No som responsables de l'ús que facis dels codis generats si infringeix la llei.</p>
+    <h3>1.3 Idioma i Jurisdicció</h3>
+    <p>Aquests Termes estan disponibles en els idiomes de la Unió Europea, així com en els idiomes oficials del Regne Unit, Estats Units, Canadà i altres països. En cas de discrepància, prevaldrà la versió en el teu idioma natiu o en anglès, llevat que s'indiqui el contrari. La jurisdicció depèn del teu país de residència: Ucraïna (Llei ucraïniana «Sobre la Protecció dels Drets del Consumidor»), Unió Europea (GDPR), Regne Unit (UK GDPR, Llei de Protecció de Dades de 2018), Estats Units (Llei de la Comissió Federal de Comerç, CCPA/CPRA), Canadà (PIPEDA), i altres lleis rellevants dels països on s'utilitza el Servei.</p>
+
+    <h3>1.4 Acceptació a l'Aplicació i Emmagatzematge de Consentiments (Registres de Consentiment)</h3>
+    <p>Durant el registre a l'aplicació, mostrem enllaços a les versions actuals dels Termes i la Política de Privacitat. Pots revisar els documents directament a l'aplicació i després confirmar el consentiment mitjançant una acció explícita (casella de verificació o botó). Emmagatzemem registres de les acceptacions que proporciones (tipus de document: Termes/Política, versió/data, idioma, hora d'acceptació) en el nostre sistema de servidors (Firebase/Firestore) i localment a l'aplicació únicament per a fins d'auditoria, prova de la legalitat del tractament i compliment dels requisits legals.</p>
+    <p>Si realitzem canvis significatius en aquests Termes, presentarem novament la versió actualitzada a l'aplicació i sol·licitarem la confirmació del teu consentiment. Si no acceptes les actualitzacions, deixa d'utilitzar el Servei i/o elimina el teu compte.</p>
+    <p><strong>Període de Retenció dels Registres de Consentiment:</strong> Emmagatzemem els registres d'acceptació durant la vida del compte i fins a 3 anys després de la seva eliminació, únicament per complir amb els requisits legals, auditories i proves de les acceptacions proporcionades; després, els registres s'eliminen o s'anonimitzen. La base legal és l'execució d'un contracte i/o el nostre interès legítim per provar la legalitat del tractament. Pots oposar-te a aquest tractament contactant-nos a través dels contactes indicats en el document.</p>
+
+    <h2>2. Registre i Compte</h2>
+    <h3>2.1 Creació de Compte</h3>
+    <p>L'accés complet a les funcionalitats (emmagatzematge de codis QR, anàlisis, sincronització) requereix un compte a través de Firebase Auth (utilitzant correu electrònic o inici de sessió amb Apple ID; mode anònim limitat possible si és necessari). Ets responsable de l'exactitud de les dades proporcionades i de la seguretat de les teves credencials d'inici de sessió.</p>
+    <h3>2.2 Ús Anònim</h3>
+    <p>Pots utilitzar el Servei sense registrar-te, però això limita l'emmagatzematge de dades, la sincronització i l'anàlisi. Les dades anònimes s'eliminen al final de la sessió, llevat que estiguin associades a un compte.</p>
+    <h3>2.3 Obligacions de l'Usuari</h3>
+    <ul>
+      <li>No transfereixis el teu accés a tercers.</li>
+      <li>Informa'ns immediatament sobre qualsevol activitat sospitosa (correu electrònic: ixonity@gmail.com).</li>
+      <li>No utilitzis scripts automatitzats per crear comptes en massa.</li>
+    </ul>
+    <h3>2.4 Eliminació de Compte</h3>
+    <p>Pots eliminar el teu compte a través de la configuració (/me/delete). Això comporta l'eliminació irreversible de totes les teves dades, inclosos els codis QR, els fitxers d'estadístiques relacionats, els fitxers en Storage, els fitxers d'ús i els tokens de dispositius. Recomanem exportar informació important abans de l'eliminació.</p>
+    <h3>2.5 Anàlisi de Codis QR (opcional, en paquets de pagament)</h3>
+    <p>L'anàlisi de codis QR (per exemple, estadístiques d'escaneig) és una funció opcional, disponible en les subscripcions de pagament — Pro, Business, Ultra. S'activa exclusivament amb el teu consentiment explícit (opt-in) a través de l'interruptor «Habilita estadístiques d'escaneig» en la configuració d'un codi QR específic. Per als usuaris a la UE/Regne Unit/EEE, l'anàlisi es realitza només amb el consentiment del propietari del codi QR. Les dades dels escanejadors són anònimes i agregades; l'adreça IP s'utilitza una vegada per determinar país/ciutat i no s'emmagatzema.
+    Pots aturar la recollida d'anàlisis desactivant-la per al codi QR o eliminant el codi QR específic, que elimina automàticament totes les dades estadístiques relacionades del nostre backend (Firebase). No utilitzem IDFA ni realitzem «seguiment» en el sentit d'Apple ATT.</p>
+
+    <h2>3. Llicència i Drets de Propietat</h2>
+    <h3>3.1 Llicència per a l'Usuari</h3>
+    <p>Et concedim una llicència no exclusiva, revocable, per utilitzar el Servei d'acord amb aquests Termes. Pots crear codis QR per a ús personal o comercial, però no tens dret a revendre o modificar l'aplicació.</p>
+    <h3>3.2 El Teu Contingut</h3>
+    <p>Conserves els drets sobre els codis QR que crees, els seus dissenys (logotips, marcs) i els enllaços relacionats. No reclamem drets de propietat intel·lectual sobre el teu contingut, però acceptem el dret a processar-lo per proporcionar serveis (emmagatzematge en servidors, lliurament, etc.).</p>
+    <h3>3.3 Els Nostres Drets</h3>
+    <p>Tots els drets sobre el programari, el disseny de la interfície i els logotips de QR‑Ixonity ens pertanyen. No pots copiar, distribuir ni realitzar enginyeria inversa del codi sense permís per escrit.</p>
+
+    <h2>4. Ús del Servei</h2>
+    <h3>4.1 Accions Permeses</h3>
+    <ul>
+      <li>Crear, personalitzar i compartir codis QR.</li>
+      <li>Habilitar anàlisis per rastrejar escanejos (si tens l'accés corresponent).</li>
+      <li>Utilitzar el Servei per a fins legals, inclosos màrqueting, educació o projectes personals.</li>
+    </ul>
+    <h3>4.2 Accions Prohibides</h3>
+    <p>Està prohibit:</p>
+    <ul>
+      <li>Utilitzar el Servei per distribuir contingut il·legal (violència, frau, phishing, pirateria).</li>
+      <li>Sobrecarregar els servidors amb sol·licituds massives o bots.</li>
+      <li>Danyar la funcionalitat del Servei (especialment mitjançant malware).</li>
+      <li>Utilitzar codis QR per enganyar o induir a error als usuaris.</li>
+      <li>Crear codis QR que condueixin a contingut que infringeixi els drets humans, la propietat intel·lectual, la privacitat o altres drets legals, inclosos, entre altres, la discriminació, l'odi, l'explotació, la difamació o la difusió d'informació falsa perjudicial.</li>
+    </ul>
+    <h3>4.3 Moderació</h3>
+    <p>Ens reservem el dret de:</p>
+    <ul>
+      <li>Bloquejar comptes o eliminar contingut que infringeixi aquests Termes. Els usuaris seran notificats sobre el bloqueig o l'eliminació a través de correu electrònic o a l'aplicació i tenen dret a apel·lar la decisió contactant amb ixonity@gmail.com en un termini de 14 dies.</li>
+      <li>Col·laborar amb les autoritats d'aplicació de la llei per sol·licituds legals.</li>
+      <li>Restringir temporalment l'accés durant actualitzacions tècniques (notifiquem sobre actualitzacions significatives a través de notificacions push o correu electrònic si afecten l'accés al Servei).</li>
+    </ul>
+
+    <h2>5. Limitació de Responsabilitat</h2>
+    <h3>5.1 Limitacions Tècniques</h3>
+    <p>El Servei es proporciona «tal com és». No garantim un funcionament ininterromput o lliure d'errors a causa de la dependència de plataformes de tercers (Google Firebase, Apple). En cas d'errors, ens esforcem per corregir-los.</p>
+    <h3>5.2 Danys Indirectes</h3>
+    <p>No som responsables de:</p>
+    <ul>
+      <li>Pèrdua de dades deguda a entrades incorrectes o eliminació del compte de l'usuari.</li>
+      <li>Danys causats per l'ús de codis QR (per exemple, si l'enllaç condueix a un lloc maliciós).</li>
+      <li>Interpretació errònia d'anàlisis deguda a especificacions tècniques.</li>
+    </ul>
+    <h3>5.3 Responsabilitat Màxima</h3>
+    <p>La nostra responsabilitat està limitada a la quantitat que hagis gastat en el Servei (si n'hi ha) i no supera les 1000 hryvnias (o el seu equivalent en la teva moneda). Aquesta limitació no s'aplica on estigui prohibida o restringida per les lleis de protecció al consumidor obligatòries en la teva jurisdicció, especialment en casos d'accions intencionades o negligència greu.</p>
+
+    <h2>6. Disputes i Resolució de Conflictes</h2>
+    <h3>6.1 Resolució Extrajudicial</h3>
+    <p>Abans de recórrer als tribunals, contacta'ns a través de correu electrònic: ixonity@gmail.com. Revisarem la teva queixa en un termini de 14 dies laborables i intentarem trobar una solució.</p>
+    <h3>6.2 Jurisdicció</h3>
+    <p>Les disputes es resolen als tribunals del teu país de residència d'acord amb la legislació local, especialment als tribunals del lloc de residència del consumidor (si ho exigeix la llei local). Per al Responsable del Tractament (empresari individual Zaitsev Oleksii Yuriyovych), la jurisdicció principal és la dels tribunals de la ciutat d'Odesa, Ucraïna. També pots contactar amb les autoritats supervisoras (vegeu la secció 9).</p>
+    <h3>6.3 Arbitratge</h3>
+    <p>Per als usuaris fora del país de residència, la resolució de disputes mitjançant arbitratge segons les regles de l'UNCITRAL és possible si ambdues parts estan d'acord.</p>
+
+    <h2>7. Canvis en el Servei</h2>
+    <p>Podem actualitzar, modificar o interrompre el Servei (en la seva totalitat o en part). En cas d'interrupció, proporcionem un temps raonable (almenys 30 dies) per exportar dades.</p>
+
+    <h2>8. Comunicació amb els Usuaris</h2>
+    <h3>8.1 Notificacions Push</h3>
+    <ul>
+      <li>Utilitzen un únic permís del sistema iOS/iPadOS. Si es concedeix, podem enviar notificacions tècnicament necessàries (per exemple, sobre fites d'escaneig, notificacions de servei sobre límits/estat de subscripció).</li>
+      <li>Pots canviar el permís en qualsevol moment a la configuració del sistema del dispositiu (Configuració → Notificacions) o desactivar els límits de fites individuals a la secció «Notificacions» de l'aplicació.</li>
+      <li>Les notificacions push de màrqueting no s'envien actualment. Si s'introdueix aquesta opció en el futur, només estarà disponible amb el teu consentiment explícit (opt-in) a l'aplicació; pots optar per sortir en qualsevol moment.</li>
+      <li>El token del dispositiu s'utilitza únicament per al lliurament de notificacions a través d'Apple/FCM i no s'utilitza per al rastreig publicitari o la creació de perfils.</li>
+    </ul>
+    <h3>8.2 Suport Tècnic</h3>
+    <p>Contacta'ns a través de correu electrònic: ixonity@gmail.com o telèfon: +380771817071. La resposta es proporciona en un termini de 3 dies laborables (hora de Kíiv).</p>
+
+    <h2>9. Dades de Contacte i Autoritats Supervisoras</h2>
+    <p>Responsable del Tractament: Empresari individual Zaitsev Oleksii Yuriyovych (Ixonity)<br/>
+    Correu electrònic: ixonity@gmail.com<br/>
+    Telèfon: +380771817071<br/>
+    Lloc web: https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/</p>
+    <p>Autoritats Supervisoras:</p>
+    <ul>
+      <li>🇺🇦 Ucraïna: Defensor del Poble de Drets Humans d'Ucraïna — https://ombudsman.gov.ua</li>
+      <li>🇪🇺 Unió Europea: Consell Europeu de Protecció de Dades — https://edpb.europa.eu</li>
+      <li>🇬🇧 Regne Unit: Oficina del Comissionat d'Informació (ICO) — https://ico.org.uk</li>
+      <li>🇺🇸 Estats Units: Comissió Federal de Comerç (FTC) — https://consumer.ftc.gov</li>
+      <li>🇨🇦 Canadà: Oficina del Comissionat de Privacitat del Canadà — https://www.priv.gc.ca</li>
+    </ul>
+    <p>Altres països: Autoritats nacionals de protecció de dades rellevants (contacta'ns si és necessari).</p>
+
+    <h2>10. Disposicions Finals</h2>
+    <p>Aquests Termes constitueixen l'acord complet entre tu i nosaltres respecte a l'ús del Servei i substitueixen tots els acords anteriors. Si alguna disposició es considera invàlida, les altres romandran en vigor. L'ús continuat del Servei després de l'actualització dels Termes implica la teva acceptació.</p>
+
+    <h2>11. Paquets i Subscripcions de Pagament</h2>
+    <p>El Servei ofereix un paquet bàsic gratuït (Start) i subscripcions de pagament a través d'Apple StoreKit per accedir a funcionalitats ampliades (incloent anàlisi de codis QR, codis QR dinàmics i API): Pro, Business, Ultra.</p>
+    <ul>
+      <li>Els detalls de la subscripció (llista de funcionalitats, durada, preu) s'indiquen a l'aplicació i a la pàgina de l'App Store. Les subscripcions es renoven automàticament llevat que es cancel·lin 24 hores abans del final del període.</li>
+      <li>Cancel·lació: Possible a través de la configuració d'Apple ID segons les regles d'Apple StoreKit.</li>
+      <li>Reemborsaments: D'acord amb la política d'Apple. Contacta amb el suport d'Apple per sol·licituds de reemborsament. No emmagatzemem dades de pagament ni controlem el procés de pagament o reemborsament.</li>
+      <li>Límits d'accés: Després de la finalització d'una subscripció de pagament, l'accés a les funcionalitats de pagament cessa, però els codis QR generats romanen actius llevat que els eliminis.</li>
+    </ul>
+
+    <h2>12. Compliment dels Requisits d'Apple</h2>
+    <ul>
+      <li>Transparència de Rastreig d'Aplicacions (ATT): No utilitzem IDFA ni tecnologies de rastreig per a publicitat. L'anàlisi de codis QR és anonimitzada i s'activa només amb el teu consentiment (vegeu la secció 2.5).</li>
+      <li>StoreKit: Tots els pagaments es gestionen exclusivament a través d'Apple StoreKit, garantint el compliment de les regles d'Apple.</li>
+    </ul>
+
+    <h2>13. Transferència de Dades</h2>
+    <p>Algunes dades recollides a través del Servei (per exemple, a través de Firebase) poden transferir-se als Estats Units. Aquestes transferències estan protegides per Clàusules Contractuals Estàndard (SCC) o el Marc de Protecció de Dades (DPF) segons el GDPR/UK GDPR, com es detalla en la Política de Privacitat. No venem les teves dades ni les utilitzem per a publicitat dirigida.</p>
+
+    <h2>14. Restriccions d'Edat</h2>
+    <p>El Servei està destinat a usuaris de 17 anys o més (o l'edat de consentiment en la teva jurisdicció). Si detectem que un compte pertany a una persona menor d'edat, serà eliminat d'acord amb les regles de COPPA (Estats Units) i GDPR (Article 8).</p>
+
+    <h2>15. Força Major</h2>
+    <p>No som responsables per la no provisió o retards en la provisió del Servei a causa de força major, incloent, entre altres, desastres naturals, guerres, vagues, ciberatacs o interrupcions en plataformes de tercers (per exemple, Google Firebase, Apple). Notifiquem aquestes circumstàncies a través de notificacions push o correu electrònic i prenem mesures per restaurar el Servei.</p>
+
+    <hr />
+    <footer>© 2025 Ixonity · Tots els drets reservats.</footer>
+  </main>
+</body>
+</html>
