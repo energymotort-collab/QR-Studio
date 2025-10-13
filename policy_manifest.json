@@ -44,6 +44,10 @@
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-da-2025-10-12.html"
         },
+         "he": {
+          "version": "2025-12-21",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-he-2025-10-12.html"
+        },
         "en": {
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/privacy/privacy-en-2025-10-12.html"
@@ -92,7 +96,11 @@
         "da": {
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-da-2025-10-12.html"
-        },    
+        }, 
+        "he": {
+          "version": "2025-12-21",
+          "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-he-2025-10-12.html"
+        },        
         "en": {
           "version": "2025-12-21",
           "url": "https://energymotort-collab.github.io/QR-Studio/policies/terms/terms-en-2025-10-12.html"
