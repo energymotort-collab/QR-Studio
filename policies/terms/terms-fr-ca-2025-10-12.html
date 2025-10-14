@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conditions d'utilisation — QR‑Ixonity (Ixonity)</title>
+  <meta name="description" content="Conditions d'utilisation pour le service QR‑Ixonity (Ixonity)." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #111;
+      --bg: #fff;
+      --muted: #666;
+      --accent: #6b5cff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #eee; --bg: #0b0b0f; --muted: #aaa; --accent: #9fa0ff; }
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 24px 0 8px; }
+    h3 { font-size: 1.1rem; margin: 18px 0 6px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 20px; }
+    .muted { color: var(--muted); }
+    .badge { display: inline-block; background: rgba(107,92,255,0.12); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: .85rem; }
+    hr { border: 0; border-top: 1px solid rgba(127,127,127,.2); margin: 24px 0; }
+    footer { margin-top: 32px; font-size: .9rem; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Conditions d'utilisation QR‑Ixonity</h1>
+    <p class="muted">Dernière mise à jour : 11 octobre 2025, 20:09 EEST • Version : 2025‑10‑12‑1</p>
+
+    <p>Ces conditions d'utilisation (« Conditions ») régissent votre interaction avec l'application mobile QR‑Ixonity (marque Ixonity), les services web, l'infrastructure backend et les fonctionnalités associées (« Service ») fournis par Private Entrepreneur Zaitsev Oleksii Yuriyovych (« nous », « notre », « responsable »). L'utilisation du Service signifie acceptation de ces Conditions. Si vous n'acceptez pas — arrêtez d'utiliser le Service. Nous nous efforçons de rendre les règles aussi claires et équitables que possible, en conformité avec les lois canadiennes.</p>
+
+    <h2>1. Dispositions générales</h2>
+    <h3>1.1 Acceptation des conditions</h3>
+    <p>L'utilisation du Service signifie acceptation complète de ces Conditions et de notre politique de confidentialité (disponible dans l'app). Les deux documents sont légalement contraignants. Nous nous réservons le droit de mettre à jour les Conditions. Annonçons changements significatifs dans l'app avec nouvelle date. Usage continu après changements = votre acceptation.</p>
+    <h3>1.2 Objectif du service</h3>
+    <p>QR‑Ixonity est destiné à la création, stylisation et analyse de codes QR à des fins personnelles ou commerciales. Nous ne sommes pas responsables de l'usage illégal des codes créés.</p>
+    <h3>1.3 Langue et juridiction</h3>
+    <p>Ces Conditions sont disponibles en langues de l'Union européenne ainsi qu'en anglais du Royaume-Uni, États-Unis, Canada (français et anglais) et autres langues officielles. En cas de contradiction, version dans votre langue ou anglais prévaut sauf indication contraire. Juridiction dépend de votre résidence : Ukraine (loi ukrainienne protection consommateurs), UE (GDPR), Royaume-Uni (UK GDPR, Data Protection Act 2018), États-Unis (Federal Trade Commission Act, CCPA/CPRA), Canada (PIPEDA et lois provinciales) et lois pertinentes des autres pays où vous utilisez le Service.</p>
+
+    <h3>1.4 Acceptation et enregistrement consentement dans l'app (logs consentement)</h3>
+    <p>Dans l'app lors inscription, affichons liens vers versions actuelles de ces Conditions et politique confidentialité. Vous pouvez visualiser documents directement dans l'app, puis confirmer consentement par action explicite (case à cocher ou bouton). Conservons enregistrement acceptation (type document — Conditions/Politique, version/date, paramètres locaux, heure confirmation) dans notre système serveur (Firebase/Firestore) et localement dans l'app uniquement pour audit, vérification légalité traitement et conformité légale, y compris PIPEDA.</p>
+    <p>Si changements significatifs dans ces Conditions, affichons version mise à jour dans l'app et demandons confirmation consentement. Si vous n'acceptez pas mises à jour, arrêtez usage Service et/ou supprimez compte.</p>
+    <p><strong>Durée conservation logs consentement :</strong> Conservons logs acceptation durant existence compte et jusqu'à 3 ans post-suppression uniquement pour conformité légale, audit et vérification consentements donnés ; après cette période logs supprimés ou anonymisés. Base légale exécution contrat et/ou notre intérêt légitime vérifier légalité traitement. Vous pouvez vous opposer via canaux communication indiqués dans documents.</p>
+
+    <h2>2. Inscription et compte</h2>
+    <h3>2.1 Création compte</h3>
+    <p>Accès fonctionnalités complètes (stockage QR, analyse, synchronisation) requiert compte via Firebase Auth (courriel ou Apple ID ; mode anonyme limité possible). Vous êtes responsable exactitude informations fournies et sécurité identifiants.</p>
+    <h3>2.2 Usage anonyme</h3>
+    <p>Vous pouvez utiliser Service sans inscription mais stockage données, synchronisation et analyse limités. Données anonymes supprimées fin session sauf liaison à compte.</p>
+    <h3>2.3 Obligations utilisateur</h3>
+    <ul>
+      <li>Ne partagez pas votre accès avec autrui.</li>
+      <li>Signalez immédiatement activités suspectes (courriel : ixonity@gmail.com).</li>
+      <li>N'utilisez pas scripts automatisés pour création comptes en masse.</li>
+    </ul>
+    <h3>2.4 Suppression compte</h3>
+    <p>Supprimez compte via paramètres (/me/delete). Ceci entraîne suppression irréversible toutes vos données (codes QR, logs stats associés, fichiers Storage, logs usage, jetons appareils). Exportez informations importantes avant suppression.</p>
+    <h3>2.5 Analyse codes QR (optionnelle, plans payants)</h3>
+    <p>Analyse codes QR (ex. stats scans) fonctionnalité optionnelle dans abonnements payants — Pro, Business, Ultra. Activée uniquement par consentement explicite (opt-in) via interrupteur « Activer stats scans » dans paramètres QR spécifique. Pour utilisateurs UE/RU/EEE/Canada analyse uniquement avec votre consentement en tant que propriétaire QR. Données navigateur anonymes et agrégées ; IP utilisée une fois pour identification pays/ville non stockée.
+    Arrêtez collecte données en désactivant pour QR ou supprimant QR spécifique, ce qui supprime automatiquement toutes stats associées de notre backend (Firebase). N'utilisons pas IDFA et pas de « suivi » au sens Apple ATT.</p>
+
+    <h2>3. Licence et droits de propriété</h2>
+    <h3>3.1 Licence utilisateur</h3>
+    <p>Accordons licence limitée, révocable, non-exclusive usage Service conformément ces Conditions. Vous pouvez créer codes QR usage personnel ou commercial mais pas droit vendre ou modifier l'app.</p>
+    <h3>3.2 Votre contenu</h3>
+    <p>Vous conservez droits sur codes QR créés, leurs designs (logos, cadres) et liens associés. Ne revendiquons pas droits propriété intellectuelle votre contenu mais obtenons droit traitement pour fournir Service (stockage serveurs, livraison etc.).</p>
+    <h3>3.3 Nos droits</h3>
+    <p>Tous droits sur logiciel QR‑Ixonity, design interface et logos nous appartiennent. Impossible copier, distribuer ou ingénierie inverse sans autorisation écrite.</p>
+
+    <h2>4. Utilisation du service</h2>
+    <h3>4.1 Actions autorisées</h3>
+    <ul>
+      <li>Création, personnalisation et partage codes QR.</li>
+      <li>Activation analyse suivi scans (si accès approprié).</li>
+      <li>Usage Service à fins légales, incluant marketing, éducation ou projets personnels.</li>
+    </ul>
+    <h3>4.2 Actions interdites</h3>
+    <p>Vous ne pouvez pas :</p>
+    <ul>
+      <li>Utiliser Service diffuser contenu illégal (violence, fraude, phishing, piratage).</li>
+      <li>Surcharger serveurs requêtes massives ou bots.</li>
+      <li>Endommager fonctionnalité Service (surtout via malwares).</li>
+      <li>Utiliser codes QR tromper ou frauder utilisateurs.</li>
+      <li>Créer codes QR menant contenu violant droits humains, propriété intellectuelle, vie privée ou autres droits légaux, incluant mais non limité discrimination, haine, exploitation, diffamation ou désinformation nuisible.</li>
+    </ul>
+    <h3>4.3 Modération</h3>
+    <p>Nous nous réservons droit :</p>
+    <ul>
+      <li>Bloquer comptes ou supprimer contenu violant Conditions. Utilisateurs informés blocage/suppression par courriel ou dans app, droit réclamation ixonity@gmail.com dans 14 jours.</li>
+      <li>Coopération forces ordre demandes légales, y compris autorités canadiennes.</li>
+      <li>Limitation temporaire accès durant mises à jour techniques (annonçons mises à jour importantes push/courriel si impactent accès Service).</li>
+    </ul>
+
+    <h2>5. Limitation responsabilité</h2>
+    <h3>5.1 Limitations techniques</h3>
+    <p>Service fourni « tel quel ». Dépendance plateformes tiers (Google Firebase, Apple) empêche garantie disponibilité continue ou absence bugs. En cas panne, efforts correction.</p>
+    <h3>5.2 Dommages indirects</h3>
+    <p>Non responsables :</p>
+    <ul>
+      <li>Perte données due saisie erronée utilisateur ou suppression compte.</li>
+      <li>Dommages usage codes QR (ex. lien vers page malveillante).</li>
+      <li>Interprétations erronées analyse dues limitations techniques.</li>
+    </ul>
+    <h3>5.3 Responsabilité maximale</h3>
+    <p>Responsabilité limitée montant dépensé Service (si applicable) ne dépassant pas 1000 hryvnias (ou équivalent devise). Cette limitation inapplicable juridictions où lois protection consommateurs obligatoires l'interdisent ou limitent, spécialement actes intentionnels ou négligence grave, y compris au Canada.</p>
+
+    <h2>6. Litiges et résolution</h2>
+    <h3>6.1 Résolution extrajudiciaire</h3>
+    <p>Avant tribunal, contactez-nous courriel : ixonity@gmail.com. Examinons réclamation dans 14 jours ouvrables et cherchons solution.</p>
+    <h3>6.2 Juridiction</h3>
+    <p>Litiges résolus tribunaux pays résidence selon droit local, spécialement tribunaux consommateurs (si loi locale requiert). Pour Canada, applicable lois provinciales et fédérales (PIPEDA). Pour responsable (Private Entrepreneur Zaitsev Oleksii Yuriyovych) juridiction primaire ville Odessa Ukraine. Aussi recours autorités contrôle (voir section 9).</p>
+    <h3>6.3 Arbitrage</h3>
+    <p>Pour utilisateurs hors résidence, résolution litiges possible arbitrage règles UNCITRAL si parties acceptent.</p>
+
+    <h2>7. Modifications service</h2>
+    <p>Pouvons mettre à jour, modifier ou terminer Service (totalement ou partiellement). En cas terminaison, délai raisonnable (minimum 30 jours) export données.</p>
+
+    <h2>8. Communication utilisateurs</h2>
+    <h3>8.1 Notifications push</h3>
+    <ul>
+      <li>Utilise autorisation système iOS/iPadOS. Si autorisé, pouvons envoyer notifications techniquement nécessaires (ex. jalons scans, messages service limites/abonnement).</li>
+      <li>Changez autorisation anytime via réglages appareil (Paramètres → Notifications) ou section « Notifications » app.</li>
+      <li>Notifications marketing actuellement non envoyées. Si option future, uniquement après consentement explicite séparé (opt-in) dans app ; opt-out possible anytime.</li>
+      <li>Jeton appareil utilisé uniquement livraison notifications via Apple/FCM, pas suivi publicitaire ou création profil.</li>
+    </ul>
+    <h3>8.2 Support technique</h3>
+    <p>Contactez courriel : ixonity@gmail.com ou téléphone : +380771817071. Réponse dans 3 jours ouvrables (heure Kiev).</p>
+
+    <h2>9. Coordonnées et autorités de contrôle</h2>
+    <p>Responsable : Private Entrepreneur Zaitsev Oleksii Yuriyovych (Ixonity)Courriel : ixonity@gmail.comTéléphone : +380771817071Site web : https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/</p>
+    <p>Autorités de contrôle :</p>
+    <ul>
+      <li>🇺🇦 Ukraine : Commissaire droits homme Parlement — https://ombudsman.gov.ua</li>
+      <li>🇪🇺 UE : Comité européen protection données — https://edpb.europa.eu</li>
+      <li>🇬🇧 Royaume-Uni : Information Commissioner's Office (ICO) — https://ico.org.uk</li>
+      <li>🇺🇸 États-Unis : Federal Trade Commission (FTC) — https://consumer.ftc.gov</li>
+      <li>🇨🇦 Canada : Commissariat à la protection de la vie privée du Canada — https://www.priv.gc.ca</li>
+    </ul>
+    <p>Autres pays : Autorités nationales protection données correspondantes (contactez si nécessaire). Au Canada, vous pouvez également contacter les commissaires provinciaux selon votre province.</p>
+
+    <h2>10. Dispositions finales</h2>
+    <p>Ces Conditions accord complet entre vous et nous concernant usage Service et remplacent accords précédents. Si clause déclarée invalide, autres restent en vigueur. Usage continu après mise à jour Conditions = acceptation.</p>
+
+    <h2>11. Plans et abonnements payants</h2>
+    <p>Service offre package gratuit de base (Start) et accès fonctionnalités avancées via abonnements payants Apple StoreKit (incl. analyse QR, codes QR dynamiques et API) : Pro, Business, Ultra.</p>
+    <ul>
+      <li>Détails abonnements (liste fonctionnalités, durée, prix) spécifiés dans app et page App Store. Abonnement auto-renouvelé sauf annulation 24h avant fin période.</li>
+      <li>Annulation : via réglages Apple ID selon règles Apple StoreKit.</li>
+      <li>Remboursements : soumis politique Apple. Contactez support Apple pour demandes remboursement. Ne stockons pas données paiement et ne contrôlons pas traitement paiements ou remboursements.</li>
+      <li>Limitations accès : fin abonnement payant stoppe accès fonctionnalités payantes mais codes QR créés restent actifs tant non supprimés.</li>
+    </ul>
+
+    <h2>12. Conformité exigences Apple</h2>
+    <ul>
+      <li>App Tracking Transparency (ATT) : N'utilisons pas IDFA ou technologies suivi publicitaire. Analyse QR anonymisée et activée uniquement consentement (voir section 2.5).</li>
+      <li>StoreKit : Tous paiements traités uniquement via Apple StoreKit selon règles Apple.</li>
+    </ul>
+
+    <h2>13. Transferts données</h2>
+    <p>Certains données collectées via Service (ex. via Firebase) peuvent transférées États-Unis. Ces transferts protégés Clauses contractuelles types (SCC) ou Data Privacy Framework (DPF) conformes GDPR/UK GDPR, détaillé politique confidentialité. Pour utilisateurs canadiens, transferts transfrontaliers conformes PIPEDA. Ne vendons pas vos données et n'utilisons pas publicité ciblée.</p>
+
+    <h2>14. Limitations d'âge</h2>
+    <p>Service destiné utilisateurs 17 ans et plus (ou âge consentement juridiction). Comptes sous limite supprimés conformément règles COPPA (États-Unis) et GDPR (art. 8), et lois canadiennes sur la protection des mineurs.</p>
+
+    <h2>15. Force majeure</h2>
+    <p>Non responsables échecs ou retards fourniture Service dus force majeure (catastrophes naturelles, guerres, grèves, cyberattaques ou pannes plateformes tiers — ex. Google Firebase, Apple). Informons situations via push/courriel et efforts restauration fonctionnement Service.</p>
+
+    <hr />
+    <footer>© 2025 Ixonity · Tous droits réservés</footer>
+  </main>
+</body>
+</html>
