@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fi-FI">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tietosuojakäytäntö — QR‑Ixonity (Ixonity)</title>
+  <meta name="description" content="Tietosuojakäytäntö QR‑Ixonity (Ixonity) -palvelulle." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #111;
+      --bg: #fff;
+      --muted: #666;
+      --accent: #6b5cff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #eee; --bg: #0b0b0f; --muted: #aaa; --accent: #9fa0ff; }
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 24px 0 8px; }
+    h3 { font-size: 1.1rem; margin: 18px 0 6px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 20px; }
+    .muted { color: var(--muted); }
+    .badge { display: inline-block; background: rgba(107,92,255,0.12); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: .85rem; }
+    hr { border: 0; border-top: 1px solid rgba(127,127,127,.2); margin: 24px 0; }
+    footer { margin-top: 32px; font-size: .9rem; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Tietosuojakäytäntö (Tietosuojakäytäntö)</h1>
+    <p class="muted">Viimeisin päivitys: 11 lokakuuta 2025 • Versio: 2025‑10‑12‑1</p>
+
+    <p>Tämä tietosuojakäytäntö selittää, miten Private Entrepreneur Zaitsev Oleksii Yuriyovych (brändi Ixonity) ("me", "rekisterinpitäjä") kerää, käyttää, säilyttää, käsittelee ja suojaa henkilötietoja, kun käytät QR‑Ixonity-sovellusta, siihen liittyviä verkkopalveluita, taustajärjestelmää ja siihen liittyviä toimintoja ("Palvelut"). Noudatamme Ukrainan, Euroopan unionin (EU/ETA), Yhdistyneen kuningaskunnan, Yhdysvaltojen ja alueiden lakivaatimuksia, joissa Palveluita käytetään.</p>
+
+    <p><strong>Palvelun nimi:</strong> QR‑Ixonity (brändi Ixonity)<br/>
+    <strong>Tuotteen standardinimi:</strong> QR‑Ixonity (jatkossa tekstissä Palveluna)<br/>
+    <strong>Rekisterinpitäjä:</strong> Private Entrepreneur Zaitsev Oleksii Yuriyovych (Ukraina, Odesa)</p>
+
+    <p><strong>Yhteystiedot:</strong><br/>
+        •    Sähköposti: ixonity@gmail.com<br/>
+        •    Puhelin: +380771817071<br/>
+        •    Verkkosivusto: https://energymotort-collab.github.io/ixonity-site/ixonity-site-legal/<br/>
+        •    Postiosoite: Käsittelemme pyynnöt sähköpostitse. Vastausaika pyyntöihin: enintään 3 arkipäivää (Kiovan aika)</p>
+
+    <p><strong>Tietojen käsittelijät:</strong> Google Firebase (Auth, Firestore, Functions, Storage, Messaging, Hosting), Apple (StoreKit, APNs), QR-koodien kohdesivujen staattinen isäntäpalveluntarjoajat<br/>
+    <strong>Alueelliset lainkäyttöalueet:</strong> Ukraina, Euroopan unioni, Yhdistynyt kuningaskunta, Yhdysvallat<br/>
+    <strong>Isännöintialue (Firebase/Backend):</strong> Eurooppa — Puola (alue europe-central2, Varsova)</p>
+
+    <h2>Lainsäädännöllinen perusta</h2>
+    <ul>
+      <li>Ukrainan laki "Henkilötietojen suojasta" (№ 2297-VI pvm. 01.06.2010)</li>
+      <li>EU:n yleinen tietosuoja-asetus (GDPR, asetus (EU) 2016/679)</li>
+      <li>Yhdistyneen kuningaskunnan "UK Data Protection Act 2018" ja "UK GDPR" (Brexitin jälkeinen mukautettu GDPR-versio)</li>
+      <li>ICO-ohjeet (Information Commissioner's Office, https://ico.org.uk)</li>
+      <li>California Consumer Privacy Act (CCPA) ja California Privacy Rights Act (CPRA)</li>
+      <li>US Federal Trade Commission Act (Federal Trade Commission, FTC)</li>
+    </ul>
+
+    <p>Pyritään maksimaaliseen läpinäkyvyyteen, turvallisuuteen ja käyttäjien oikeuksien kunnioittamiseen. Jos sinulla on kysymyksiä, ota yhteyttä mainittujen kanavien kautta.</p>
+
+    <h2>1. Määritelmät</h2>
+    <p>Selkeyden vuoksi tässä käytännössä käytetään seuraavia termejä:</p>
+    <ul>
+      <li>Henkilötiedot — mikä tahansa tieto, joka tunnistaa henkilön suoraan tai epäsuorasti (esim. sähköposti, yksilöllinen tunniste)</li>
+      <li>Käyttäjä — henkilö, joka asentaa, rekisteröityy ja käyttää Palvelua</li>
+      <li>Rekisterinpitäjä — henkilö, joka määrittelee tietojen käsittelyn tarkoitukset ja keinot (meidän tapauksessamme — Private Entrepreneur Zaitsev Oleksii Yuriyovych)</li>
+      <li>Tietojen käsittelijä — henkilö tai organisaatio, joka käsittelee tietoja rekisterinpitäjän puolesta (esim. Google Firebase tai Apple)</li>
+      <li>Alihankkijat — kolmannet osapuolet, jotka osallistuvat tietojen käsittelyyn (katso kohta 13)</li>
+      <li>Tietojen käsittely — kaikki toimenpiteet tietojen kanssa, mukaan lukien kerääminen, säilyttäminen, käyttö, siirto tai poistaminen</li>
+    </ul>
+
+    <h2>2. Lainsäädännöllinen kehys ja käyttäjien oikeudet</h2>
+    <p>Toimimme mainitun lainsäädännön mukaisesti. Tietosuojaoikeuksina sinulla on:</p>
+    <ul>
+      <li>Pääsy-oikeus — saada kopio henkilötiedoistasi</li>
+      <li>Oikaisu-oikeus — korjata tiedoissa olevat virheet</li>
+      <li>Poisto-oikeus (unohtamisen oikeus) — tietojesi poistaminen, kun niitä ei enää tarvita</li>
+      <li>Käsittelyn rajoittaminen — tietojen käsittelyn väliaikainen rajoittaminen</li>
+      <li>Vastustamisoikeus — vastustaa oikeutettuihin etuihin perustuvaa käsittelyä</li>
+      <li>Tietojen siirrettävyys-oikeus — saada tietosi jäsennellyssä muodossa siirrettäväksi toiselle rekisterinpitäjälle</li>
+      <li>Erimielisyyttä kohtelusta -oikeus — emme syrji käyttäjiä oikeuksien käytössä (esim. emme muuta hintoja tai pääsyä)</li>
+      <li>Valitusoikeus — valvontaviranomaiselle (katso kohta 15)</li>
+    </ul>
+    <p>Oikeuksiesi käyttämiseksi lähetä pyyntö osoitteeseen ixonity@gmail.com. Tarkistamme henkilöllisyytesi ja vastaamme määräaikojen puitteissa (yleensä GDPR:n mukaisesti 30 päivää tai CCPA/CPRA:n mukaisesti 45 päivää, monimutkaisissa tapauksissa jopa 90 päivää).</p>
+    <p><em>Lisäselvitys:</em> Tietojen käsittelyyn suostumus (esim. push-ilmoitukset tai QR-koodianalytiikka) vahvistetaan selkeällä vahvistuksella (valintaruutu tai painike) eikä ole valmiiksi valittuna. Push-ilmoitusten kohdalla sovelluksen asennuksen jälkeen näytetään paneeli, joka pyytää vahvistusta ilmoitusten vastaanottoon tai kieltäytymistä.</p>
+
+    <h2>3. Käsittelemämme tiedot ja syyt</h2>
+    <h3>3.1. Tilitiedot (Firebase Auth -rekisteröinnin jälkeen):</h3>
+    <p>• Sähköposti ja käyttäjän yksilöllinen tunniste (UID, Firebase ID)<br/>
+       • Apple-tunnistautumistiedot (jos valittu)<br/>
+       • Laitteiden tekniset tokenit push-ilmoituksia varten (esim. Firebase Registration Token, säilytetty devices-kokoelmassa)<br/>
+       Tarkoitus: tunnistautuminen, käyttäjän tunnistaminen ja pääsyn palauttaminen</p>
+
+    <h3>3.2. Tilaustiedot (Apple StoreKit:n kautta):</h3>
+    <p>• Suunnitelman tunniste (Pro, Business, Ultra), aloitus/lopetuspäivämäärä<br/>
+       • Tilaustyyppi, pääsyoikeudet (entitlements) ja käyttörajoitukset (usage)<br/>
+       Tarkoitus: tilausten hallinta, dynaamisten QR-koodien ja API:n rajojen hallinta</p>
+
+    <h3>3.3. Ilmoitustiedot (jos lupa annettu)</h3>
+    <p>• Mitä säilytämme: laitteesi APNs/FCM-token; ilmoitusasetukset (prefs) mukaan lukien skannauksen kynnysarvot (10, 100, 10000, 50000)<br/>
+       • Toimintaperiaate: iOS/iPadOS-järjestelmälupa; muutettavissa Asetukset → Ilmoitukset tai "Ilmoitukset"-osiossa<br/>
+       • Käsittelyn tarkoitus: teknisesti välttämättömät ilmoitukset (tärkeät vaiheet, tilausrajat/tila)<br/>
+       • Ei seuranta: tokenia käytetään vain Apple/FCM:n kautta toimitukseen, ei mainosseurantaan/profiilin luomiseen<br/>
+       • Markkinointailmoitukset: tällä hetkellä ei lähetetä; tulevaisuudessa — vain erillinen opt‑in</p>
+
+    <h3>3.4. QR-koodianalytiikka (jos käyttäjä aktivoi maksullisia toimintoja varten)</h3>
+    <p>• Kerää vain aggregoidut ja anonyymit tilastot: maa, kaupunki, laitetyyppi (iOS/Android/Desktop), käyttöliittymän kieli, referer, UTM, kohdesivu (target), päivämäärä/aika<br/>
+       • IP käsitellään kerralla geolokaatioon eikä säilytetä<br/>
+       • User‑Agent — laitetyypin tunnistamiseen ilman henkilöllisyyttä<br/>
+       Tarkoitus: suorituskyvyn mittaamiseksi aggregoidut tilastot. Valinnainen: saatavilla Pro/Business/Ultra:ssa ja aktivoidaan selkeällä toiminnolla (opt‑in) tietylle QR-koodille; voidaan deaktivoida milloin tahansa. Ei käytetä IDFA/ATT:ta</p>
+
+    <h3>3.5. Tekniset lokit ja analytiikka</h3>
+    <p>• Firebase-aggregoidut mittarit (AppCheck) suorituskyvyn optimointiin<br/>
+       • Käytön kirjanpito: skannausten määrä, API-kutsut, luodut dynaamiset QR-koodit (kuukausittainen kirjanpito)<br/>
+       Tarkoitus: rajojen valvonta, ylikuormituksen estäminen, laskutus ja auditointi. Ei käytetä käyttäjäkäytöksen seurantaan</p>
+
+    <h3>3.6. App Tracking Transparency (ATT) ja IDFA</h3>
+    <p>• Emme käytä IDFA:ta emmekä tee "seurantaa" Apple ATT:n merkityksessä<br/>
+       • Järjestelmän ATT-dialogia ei näytetä, koska emme pyydä seurantaa<br/>
+       • QR-koodianalytiikka on anonyymiä eikä liitetä mainosprofiileihin</p>
+
+    <h2>4. Tietoja, joita emme kerää</h2>
+    <p>• Maksukorttitiedot (käsitellään vain Applen toimesta)<br/>
+       • Käyttäjien kuvat, asiakirjat tai muut henkilökohtaiset tiedostot<br/>
+       • GPS-sijainti, mikrofonin/kameran käyttö ilman suoraa käyttäjän toimintaa<br/>
+       • QR-analytiikan ulkopuoliset aktiviteettilogit kertakäsittelyn ulkopuolella</p>
+
+    <h2>5. Tietojen keräyksen lähteet</h2>
+    <p>• Sinulta annetut: yhteystiedot, ilmoitusasetukset<br/>
+       • Automaattisesti kerätyt: tekniset tokenit, käyttö, anonyymi skannauksen analytiikka (jos aktivoitu)<br/>
+       • Kolmansilta osapuolilta: Applelta tilaustiedot, Firebase/Applelta tunnistautuminen</p>
+
+    <h2>6. Käsittelyn lainsäädännöllinen perusta (Lainsäädännöllinen perusta)</h2>
+    <p>• Sopimuksen täyttäminen — tili/tilaukset/rajat, QR-tietojen säilytys, teknisesti välttämättömät ilmoitukset<br/>
+       • Oikeutettu etu — turvallisuus, eheys, vakavuus, auditointi ja resurssien suunnittelu (vastustamisoikeudella)<br/>
+       • Suostumus — markkinointipush (jos on, vain opt‑in), valinnainen QR-analytiikka (opt‑in)<br/>
+       • Lainmukaiset velvoitteet — lainmukaisten pyyntöjen vastaaminen, kirjanpito/verotus</p>
+
+    <h2>7. Käsittelyn tarkoitukset</h2>
+    <p>Tunnistautuminen ja tunnistaminen; QR-tietojen säilytys; tilausten ja rajojen hallinta; ilmoitusten lähettäminen; aggregoidut analyysit; turvallisuus, vianmääritys ja optimointi</p>
+
+    <h2>8. Evästeet ja vastaavat teknologiat</h2>
+    <p>Vain tunnistautumiseen ja toiminnallisuuteen ehdottoman välttämättömät evästeet. Jos lisätään valinnaisia evästeitä — pyydämme suostumusta ja kunnioitamme GPC-signaaleja</p>
+
+    <h2>9. Tietojen jakaminen ja siirrot</h2>
+    <p>Tiedot — vain tarkistetuille alihankkijoille (DPA). Firebase — EU:ssa (europe‑central2). Jotkut palvelut voivat käsitellä teknisiä tietoja ETA/YK:n ulkopuolella; käytämme SCC/DPF:tä, teemme TIA:n ja otamme lisäsuojatoimia</p>
+
+    <h3>9.1. Edustaja EU:ssa/YK:ssa (GDPR/UK GDPR artikla 27)</h3>
+    <p>Jos tarjoamme Palveluita systemaattisesti EU/YK:n asukkaille tai teemme kohdennettua markkinointia — nimittelemme edustajan ja päivitämme tämän kohdan. Tällä hetkellä edustajaa ei ole nimetty</p>
+
+    <h2>10. Tietojen säilytys</h2>
+    <p>• Aktiivinen tili: säilytämme vain niin kauan kuin tarvitaan Palvelun tarjoamiseen (tunnistautuminen, QR/asetusten säilytys, tilaus, rajat/kvootat, ilmoitukset)</p>
+    <p>• Pyynnöstä poisto: sovelluksessa "Poista tili" — kaikki hallinnassamme olevat henkilötiedot ja niihin liittyvä sisältö poistetaan (Auth, QR-linkit ja tilastot, Storage-tiedostot, prefs/devices, käyttö, entitlements). Prosessi on automaattinen ja kestää sekunneista minuutteihin</p>
+    <p>• Palveluntarjoajan varmuuskopiot ja lokit: poiston jälkeen tietoja voidaan säilyttää väliaikaisesti käsittelijöidemme (Google/Firebase) teknisinä varmuuskopioina/logeina 30–90 päivää; näitä kopioita ei voi käyttää operatiivisesti ja ne poistetaan automaattisesti</p>
+    <p>• Analytiikka ja käyttö: aktiivisille tileille aggregoidut QR-tilastot ja käyttö voidaan säilyttää rajoja/auditointia/optimointia varten jopa 12 kuukautta; QR-koodin/tilin poiston yhteydessä niihin liittyvät tiedot poistetaan välittömästi</p>
+    <p>• Apple-tilauslogit: emme säilytä Apple-asiantuntijalogia; säilytämme vain nykyisen suunnitelman/entitlements-tilan, joka poistetaan tilin kanssa</p>
+    <p>• Lainmukaiset velvoitteet: jos laki vaatii pidempää säilytystä (kirjanpito ym.) säilytämme vähimmäismäärän ja vain lain selkeästi määrittämän ajan</p>
+
+    <h3>10.1 Suostumuslogit ja säilytysajat</h3>
+    <p>Rekisteröinnin aikana näytämme linkit tämän käytännön ja käyttöehtojen nykyisiin versioihin. Voit tarkastella dokumentteja suoraan sovelluksessa, minkä jälkeen vahvistat suostumuksen selkeällä toiminnolla (valintaruutu tai painike). Säilytämme annetun suostumuksen lokit (dokumenttityyppi: käytäntö/ehtoja, versio/päivämäärä, paikalliset asetukset, hyväksymisaika) Firebase/Firestoressa ja sovelluksessa paikallisesti vain käsittelyn laillisuuden vahvistamiseksi ja lakivaatimusten noudattamiseksi. Nämä lokit säilytetään tilisi olemassaolon ajan ja enintään 3 vuotta poistamisen jälkeen; sen jälkeen ne poistetaan tai anonymisoidaan</p>
+
+    <h3>10.2 Suostumuslogien säilytyksen lainsäädännöllinen perusta</h3>
+    <p>Suostumuslogien säilytys perustuu sopimuksen täyttämiseen ja/tai oikeutettuun etuumme vahvistaa käsittelyn laillisuus ja noudattaa tietosuojavelvoitteita. Voit vastustaa tällaista käsittelyä ottamalla yhteyttä tähän käytäntöön määriteltyjen kanavien kautta</p>
+
+    <h2>11. Turvallisuus ja tapahtumat</h2>
+    <p>Salaus (SSL/TLS, HTTPS), Firebase App Check, pääsyvalvonta, MFA, auditointi. Tapahtumien sattuessa ilmoitamme käyttäjille ja viranomaisille (esim. GDPR:n mukaisesti 72 tunnin kuluessa). Tiedot salataan siirrossa ja "at rest" -tilassa (AES‑256 Firebase-palvelimilla)</p>
+
+    <h2>12. Tilin poisto</h2>
+    <p>Saatavilla sovelluksen käyttöliittymässä (/me/delete). Poistaa: tilin, QR-koodit, tilastot, Storage-tiedostot, käyttö, tokenit. Tietoja ei voi palauttaa. Yksittäisen QR-koodin poisto poistaa automaattisesti niihin liittyvät tiedot (ml. skannustilastot) taustajärjestelmästämme</p>
+
+    <h2>13. Pääalihankkijat</h2>
+    <p>Google Firebase (Auth, Firestore, Functions, Storage, Messaging, Hosting); Apple (StoreKit, APNs); QR-kohdesivujen isäntäpalveluntarjoajat. Täysi luettelo saatavilla pyynnöstä</p>
+
+    <h2>14. Käyttäjän sisältö ja lainmukaisuus</h2>
+    <p>QR-koodien oikeudet kuuluvat käyttäjille. Laittoman sisällön jakaminen kielletty; mahdollinen moderointi ja yhteistyö viranomaisten kanssa</p>
+
+    <h2>15. Lisäehtoja Kalifornian käyttäjille (CCPA/CPRA)</h2>
+    <p>Emme "myy" tietoja. Oikeudet: pääsy, poisto, Opt‑Out. Yhteystiedot: <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a>. QR-analytiikan voi deaktivoida poistamalla QR-koodin sovelluksessa tai pyynnöllä</p>
+
+    <h2>16. Lapset</h2>
+    <p>Palvelu ei ole tarkoitettu lapsille; vähimmäisikä 17+ tai alueesi suostumusikä. Löydetyt lasten tilit poistetaan. Vanhemmat/huoltajat voivat ottaa yhteyttä <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a></p>
+
+    <h2>17. Käytännön muutokset</h2>
+    <p>Ilmoitamme muutokset sovelluksessa/verkkosivustolla 14 päivää ennen voimaantuloa. Jatkokäyttö = suostumus</p>
+
+    <h2>18. Automaattinen päätöksenteko</h2>
+    <p>Emme käytä automaattista päätöksentekoa GDPR:n (artikla 22) merkityksessä. QR-analytiikka on anonyymiä eikä vaikuta käyttäjän oikeuksiin/velvoitteisiin. Moderointi sisältää ihmisen väliintuloa</p>
+
+    <h2>19. Force majeure</h2>
+    <p>Emme ole vastuussa viivästyksistä tai tietojen käsittelyn mahdottomuudesta force majeure -tapahtumien (luonnonkatastrofit, sodat, lakot, kyberhyökkäykset, kolmansien osapuolten alustahäiriöt) vuoksi. Tällaisissa tapauksissa ilmoitamme push/sähköposti-ilmoituksilla ja ryhdymme toimiin Palvelun palauttamiseksi</p>
+
+    <h2>20. Yhteystiedot ja valvontaviranomaiset</h2>
+    <p>Rekisterinpitäjä: Private Entrepreneur Zaitsev Oleksii Yuriyovych (ixonity), <a href="mailto:ixonity@gmail.com">ixonity@gmail.com</a></p>
+    <ul>
+      <li>🇺🇦 Ukraina: Parlamentin ihmisoikeusvaltuutettu — https://ombudsman.gov.ua</li>
+      <li>🇪🇺 EU: Euroopan tietosuojaneuvosto — https://edpb.europa.eu</li>
+      <li>🇬🇧 Yhdistynyt kuningaskunta: Information Commissioner's Office (ICO) — https://ico.org.uk</li>
+      <li>🇺🇸 Yhdysvallat: Federal Trade Commission (FTC) — https://consumer.ftc.gov</li>
+      <li>🇨🇦 Kanada: Kanadan tietosuojavaltuutetun toimisto — https://www.priv.gc.ca</li>
+    </ul>
+    <p>Selitys Brasilialle (LGPD): Turvallisuustapahtumissa, jotka voivat aiheuttaa riskin tai merkittävää vahinkoa Brasilian tietosuojaoikeuksien haltijoille, ilmoitamme ANPD:lle ja vaikutetuille haltijoille asianmukaisessa ajassa tapahtuman havaitsemisen jälkeen LGPD:n ja ANPD-ohjeiden mukaisesti</p>
+
+    <hr />
+    <footer>© 2025 ixonity · Kaikki oikeudet pidätetään</footer>
+  </main>
+</body>
+</html>
